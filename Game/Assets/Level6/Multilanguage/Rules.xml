@@ -1,0 +1,15 @@
+<Rules>
+  <ParagraphsSequence>
+    <Paragraph id="paragraph_1"/>
+  </ParagraphsSequence>
+  <Language id="English">
+    <Paragraph id="paragraph_1">
+      English Version. Капитан корабля купил четыре ракушки весом 10, 20, 30 и 40 грамм. Помогите ему с помощью чашечных весов определить вес каждой ракушки.
+    </Paragraph>
+  </Language>
+  <Language id="Russian">
+    <Paragraph id="paragraph_1">
+      Капитан корабля купил четыре ракушки весом 10, 20, 30 и 40 грамм. Помогите ему с помощью чашечных весов определить вес каждой ракушки.
+    </Paragraph>
+  </Language>
+</Rules>

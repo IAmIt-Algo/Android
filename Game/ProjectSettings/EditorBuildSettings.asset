@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Core/Scenes/Core.unity
+  - enabled: 1
+    path: Assets/Gui/Scenes/GuiScene.unity
+  - enabled: 1
+    path: Assets/MapLevel/Scenes/MapLevel.unity
+  - enabled: 1
+    path: Assets/Level1/Scenes/Level1.unity
+  - enabled: 1
+    path: Assets/Level2/Scenes/Level2.unity
+  - enabled: 1
+    path: Assets/Level3/Scenes/Level3.unity
+  - enabled: 1
+    path: Assets/Level4/Scenes/Level4.unity
+  - enabled: 1
+    path: Assets/Level5/Scenes/Level5.unity
+  - enabled: 1
+    path: Assets/Level6/Scenes/Level6.unity
+  - enabled: 1
+    path: Assets/Level7/Scenes/Level7.unity
+  - enabled: 1
+    path: Assets/Level8/Scenes/Level8.unity
+  - enabled: 1
+    path: Assets/MenuLevel/Scenes/MenuLevel.unity
+  - enabled: 1
+    path: Assets/MenuLevel/Scenes/Settings.unity
+  - enabled: 1
+    path: Assets/MenuLevel/Scenes/Rating.unity

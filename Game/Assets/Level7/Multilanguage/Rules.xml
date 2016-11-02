@@ -1,0 +1,15 @@
+<Rules>
+  <ParagraphsSequence>
+    <Paragraph id="paragraph_1"/>
+  </ParagraphsSequence>
+  <Language id="English">
+    <Paragraph id="paragraph_1">
+      English Version. В одном из трех мешков находятся фальшивые монеты, про которые известно, что они на 1 грамм легче, чем остальные. Определить в каком из мешков фальшивые монеты.
+    </Paragraph>
+  </Language>
+  <Language id="Russian">
+    <Paragraph id="paragraph_1">
+      В одном из трех мешков находятся фальшивые монеты, про которые известно, что они на 1 грамм легче, чем остальные. Определить в каком из мешков фальшивые монеты.
+    </Paragraph>
+  </Language>
+</Rules>

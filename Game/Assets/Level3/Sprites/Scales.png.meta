@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: 508575e22c97f2c45b96240b7cdab3ac
+timeCreated: 1455378032
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: scLeft
+    21300002: Pointer
+    21300004: scRight
+    21300006: Beam
+    21300008: scales
+    21300010: Shadow
+    21300012: LeftPan
+    21300014: RightPan
+    21300016: Base
+    21300018: ScalesLight
+    21300020: Button
+    21300022: Button2
+    21300024: Point
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: LeftPan
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 839
+        width: 246
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -120.082344, y: 96.70819}
+        - {x: -120.082344, y: 58.70819}
+        - {x: -83.082344, y: 34.70819}
+        - {x: -20.082344, y: -96.29181}
+        - {x: 19.917656, y: -96.29181}
+        - {x: 120.917656, y: 9.708191}
+        - {x: 120.917656, y: 96.70819}
+    - name: Pointer
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 850
+        width: 102
+        height: 197
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07884069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.943329, y: 179.0719}
+        - {x: -49.94333, y: 117.0719}
+        - {x: -49.94333, y: -12.928101}
+        - {x: -41.94333, y: -14.928101}
+        - {x: 50.05667, y: -14.928101}
+        - {x: 50.05667, y: 158.0719}
+        - {x: 45.05667, y: 179.0719}
+    - name: RightPan
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 839
+        width: 246
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -120.34781, y: 97.20819}
+        - {x: -120.34781, y: 47.20819}
+        - {x: -9.347809, y: -96.79181}
+        - {x: 14.652191, y: -96.79181}
+        - {x: 17.652191, y: -94.79181}
+        - {x: 121.65219, y: 52.20819}
+        - {x: 121.65219, y: 97.20819}
+    - name: Beam
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 776
+        width: 453
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Base
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 708
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 313.5, y: -102.89856}
+        - {x: 315.5, y: -61.89856}
+        - {x: 323.5, y: -47.89856}
+        - {x: 336.5, y: -33.89856}
+        - {x: 343.5, y: -16.89856}
+        - {x: 343.5, y: 10.10144}
+        - {x: 340.5, y: 27.10144}
+        - {x: 328.5, y: 47.10144}
+        - {x: 317.5, y: 59.10144}
+        - {x: 297.5, y: 72.10144}
+        - {x: 252.5, y: 74.10144}
+        - {x: 250.5, y: 78.10144}
+        - {x: 244.5, y: 83.10144}
+        - {x: 199.5, y: 82.10144}
+        - {x: 191.5, y: 84.10144}
+        - {x: 174.5, y: 85.10144}
+        - {x: 169.5, y: 72.10144}
+        - {x: 141.5, y: 72.10144}
+        - {x: 61.5, y: 73.10144}
+        - {x: 43.5, y: 75.10144}
+        - {x: 24.5, y: 80.10144}
+        - {x: 27.5, y: 85.10144}
+        - {x: 26.5, y: 104.10144}
+        - {x: 35.5, y: 111.10144}
+        - {x: 36.5, y: 138.10144}
+        - {x: 35.5, y: 179.10144}
+        - {x: 37.5, y: 198.10144}
+        - {x: 31.5, y: 205.10144}
+        - {x: -30.5, y: 205.10144}
+        - {x: -33.5, y: 198.10144}
+        - {x: -33.5, y: 166.10144}
+        - {x: -34.5, y: 114.10144}
+        - {x: -28.5, y: 108.10144}
+        - {x: -19.5, y: 95.10144}
+        - {x: -23.5, y: 80.10144}
+        - {x: -28.5, y: 81.10144}
+        - {x: -34.5, y: 76.10144}
+        - {x: -35.5, y: 74.10144}
+        - {x: -116.5, y: 75.10144}
+        - {x: -167.5, y: 77.10144}
+        - {x: -181.5, y: 90.10144}
+        - {x: -247.5, y: 90.10144}
+        - {x: -262.5, y: 79.10144}
+        - {x: -293.5, y: 77.10144}
+        - {x: -302.5, y: 74.10144}
+        - {x: -317.5, y: 66.10144}
+        - {x: -333.5, y: 50.10144}
+        - {x: -342.5, y: 30.10144}
+        - {x: -344.5, y: 15.10144}
+        - {x: -345.5, y: -0.8985596}
+        - {x: -342.5, y: -13.89856}
+        - {x: -332.5, y: -28.89856}
+        - {x: -322.5, y: -38.89856}
+        - {x: -321.5, y: -83.89856}
+        - {x: -325.5, y: -87.89856}
+        - {x: -337.5, y: -110.89856}
+        - {x: -346.5, y: -117.89856}
+        - {x: -346.5, y: -137.89856}
+        - {x: -341.5, y: -180.89856}
+        - {x: -336.5, y: -183.89856}
+        - {x: -314.5, y: -186.89856}
+        - {x: -240.5, y: -186.89856}
+        - {x: -48.5, y: -192.89856}
+        - {x: -4.5, y: -195.89856}
+        - {x: 79.5, y: -196.89856}
+        - {x: 131.5, y: -197.89856}
+        - {x: 202.5, y: -200.89856}
+        - {x: 231.5, y: -202.89856}
+        - {x: 296.5, y: -204.89856}
+        - {x: 337.5, y: -204.89856}
+        - {x: 339.5, y: -202.89856}
+        - {x: 346.5, y: -162.89856}
+        - {x: 346.5, y: -134.89856}
+    - name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 133
+        width: 759
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 321, y: -67.97891}
+        - {x: 341, y: -63.978912}
+        - {x: 351, y: -58.978912}
+        - {x: 361, y: -50.978912}
+        - {x: 365, y: -43.978912}
+        - {x: 368, y: -32.978912}
+        - {x: 361, y: -9.978912}
+        - {x: 371, y: 5.0210876}
+        - {x: 371, y: 58.021088}
+        - {x: 351, y: 65.02109}
+        - {x: 329, y: 67.02109}
+        - {x: 105, y: 67.02109}
+        - {x: 104, y: 66.02109}
+        - {x: -10, y: 66.02109}
+        - {x: -11, y: 65.02109}
+        - {x: -182, y: 65.02109}
+        - {x: -183, y: 64.02109}
+        - {x: -309, y: 64.02109}
+        - {x: -345, y: 61.021088}
+        - {x: -367, y: 52.021088}
+        - {x: -371, y: 46.021088}
+        - {x: -371, y: 11.021088}
+        - {x: -368, y: 8.021088}
+        - {x: -353, y: -12.978912}
+        - {x: -370, y: -29.978912}
+        - {x: -371, y: -42.978912}
+        - {x: -359, y: -55.978912}
+        - {x: -352, y: -60.978912}
+        - {x: -340, y: -64.97891}
+        - {x: -322, y: -66.97891}
+        - {x: -309, y: -67.97891}
+        - {x: -106, y: -67.97891}
+        - {x: -82, y: -63.978912}
+        - {x: -62, y: -76.97891}
+        - {x: -58, y: -78.97891}
+        - {x: 67, y: -78.97891}
+        - {x: 72, y: -76.97891}
+        - {x: 88, y: -66.97891}
+        - {x: 117, y: -67.97891}
+    - name: ScalesLight
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 808
+        width: 371
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Button
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 215
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97.60408, y: 59}
+        - {x: -102.39592, y: 59}
+        - {x: -105.39592, y: 55}
+        - {x: -105.39592, y: -56}
+        - {x: -98.39592, y: -59}
+        - {x: 102.60408, y: -59}
+        - {x: 103.60408, y: -52}
+        - {x: 105.60408, y: 2}
+        - {x: 105.60408, y: 55}
+    - name: Button2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 215
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96.907776, y: 59}
+        - {x: -103.092224, y: 59}
+        - {x: -105.092224, y: 57}
+        - {x: -105.092224, y: -54}
+        - {x: -103.092224, y: -58}
+        - {x: -97.092224, y: -59}
+        - {x: 98.907776, y: -59}
+        - {x: 102.907776, y: -53}
+        - {x: 104.907776, y: -11}
+        - {x: 104.907776, y: 55}
+    - name: Point
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 48
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,14 @@
+<Languages>
+	<Language id="English">
+		<Map>Map</Map>
+		<Restart>Restart</Restart>
+		<GameOver>Game Over</GameOver>
+		<LevelComplete>Level Completed</LevelComplete>
+	</Language>
+	<Language id="Russian">
+		<Map>Карта</Map>
+		<Restart>Перезапустить</Restart>
+		<GameOver>Поражение</GameOver>
+		<LevelComplete>Победа</LevelComplete>
+	</Language>
+</Languages>

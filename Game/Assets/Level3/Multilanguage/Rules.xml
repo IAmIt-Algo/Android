@@ -1,0 +1,15 @@
+<Rules>
+  <ParagraphsSequence>
+    <Paragraph id="paragraph_1"/>
+  </ParagraphsSequence>
+  <Language id="English">
+    <Paragraph id="paragraph_1">
+      English version. Цыганка на рынке подсунула путешественнику фальшивую монету. Помогите путешественнику с помощью чашечных весов определить, какая монета фальшивая, если известно, что она тяжелее других.
+    </Paragraph>
+  </Language>
+  <Language id="Russian">
+    <Paragraph id="paragraph_1">
+      Цыганка на рынке подсунула путешественнику фальшивую монету. Помогите путешественнику с помощью чашечных весов определить, какая монета фальшивая, если известно, что она тяжелее других.
+    </Paragraph>
+  </Language>
+</Rules>

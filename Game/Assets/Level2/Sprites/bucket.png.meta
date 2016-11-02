@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 477e92d85e53c654194475ef25da245a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bucket5
+    21300002: bucket5Open
+    21300004: water53
+    21300006: water54
+    21300008: water52
+    21300010: water55
+    21300012: water51
+    21300014: bucket3
+    21300016: bucket3Open
+    21300018: water31
+    21300020: water32
+    21300022: water33
+    21300024: bucket5Ghost
+    21300026: bucket3Ghost
+    21300028: bucket3Light
+    21300030: bucket5Light
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bucket5
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 209
+        width: 187
+        height: 214
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket5Open
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 211
+        width: 187
+        height: 212
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water53
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 338
+        width: 126
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water54
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 316
+        width: 133
+        height: 105
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water52
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 267
+        width: 123
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water55
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 184
+        width: 137
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water51
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 218
+        width: 122
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 41
+        width: 136
+        height: 156
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket3Open
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 42
+        width: 136
+        height: 154
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water31
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 46
+        width: 90
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water32
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 47
+        width: 94
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: water33
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 46
+        width: 101
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket5Ghost
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 205
+        width: 192
+        height: 219
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket3Ghost
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 39
+        width: 139
+        height: 160
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket3Light
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 4
+        width: 190
+        height: 190
+      alignment: 9
+      pivot: {x: .50445348, y: .927536249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bucket5Light
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 195
+        width: 235
+        height: 262
+      alignment: 9
+      pivot: {x: .51080209, y: .822963774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

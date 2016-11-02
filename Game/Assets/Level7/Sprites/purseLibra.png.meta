@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 6961d99cefa1c3b439e3a1d553a529fc
+timeCreated: 1456675010
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: purseLibraBg
+    21300002: purseLibra
+    21300004: Light
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: purseLibraBg
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 594
+        width: 280
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -125, y: 42}
+        - {x: -140, y: 29}
+        - {x: -140, y: -29}
+        - {x: -127, y: -42}
+        - {x: 75, y: -42}
+        - {x: 140, y: -27}
+        - {x: 140, y: 42}
+    - name: purseLibra
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 373
+        width: 311
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 146.5, y: 62}
+        - {x: 132.5, y: 102}
+        - {x: 100.5, y: 102}
+        - {x: 6.5, y: 67}
+        - {x: -66.5, y: 65}
+        - {x: -128.5, y: 90}
+        - {x: -145.5, y: 88}
+        - {x: -148.5, y: 83}
+        - {x: -146.5, y: 75}
+        - {x: -143.5, y: 70}
+        - {x: -155.5, y: 16}
+        - {x: -155.5, y: -48}
+        - {x: -147.5, y: -76}
+        - {x: -132.5, y: -77}
+        - {x: -89.5, y: -94}
+        - {x: -44.5, y: -102}
+        - {x: 67.5, y: -102}
+        - {x: 134.5, y: -91}
+        - {x: 155.5, y: -65}
+        - {x: 155.5, y: 37}
+    - name: Light
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 470
+        height: 350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -160}
+        - {x: 143, y: -155}
+        - {x: 170, y: -141}
+        - {x: 184, y: -130}
+        - {x: 210, y: -103}
+        - {x: 213, y: -100}
+        - {x: 227, y: -76}
+        - {x: 232, y: -61}
+        - {x: 235, y: -44}
+        - {x: 235, y: 5}
+        - {x: 231, y: 23}
+        - {x: 225, y: 40}
+        - {x: 205, y: 77}
+        - {x: 204, y: 105}
+        - {x: 202, y: 122}
+        - {x: 194, y: 140}
+        - {x: 177, y: 159}
+        - {x: 157, y: 170}
+        - {x: 139, y: 174}
+        - {x: 136, y: 175}
+        - {x: 71, y: 175}
+        - {x: 25, y: 172}
+        - {x: -3, y: 171}
+        - {x: -4, y: 170}
+        - {x: -86, y: 170}
+        - {x: -116, y: 168}
+        - {x: -132, y: 166}
+        - {x: -157, y: 162}
+        - {x: -182, y: 154}
+        - {x: -205, y: 141}
+        - {x: -221, y: 123}
+        - {x: -229, y: 104}
+        - {x: -231, y: 93}
+        - {x: -230, y: 79}
+        - {x: -226, y: 64}
+        - {x: -222, y: 58}
+        - {x: -223, y: 40}
+        - {x: -226, y: 30}
+        - {x: -235, y: -3}
+        - {x: -235, y: -54}
+        - {x: -233, y: -65}
+        - {x: -227, y: -81}
+        - {x: -220, y: -94}
+        - {x: -188, y: -128}
+        - {x: -175, y: -137}
+        - {x: -142, y: -153}
+        - {x: -122, y: -159}
+        - {x: -84, y: -168}
+        - {x: -37, y: -174}
+        - {x: -16, y: -175}
+        - {x: 54, y: -175}
+        - {x: 72, y: -173}
+        - {x: 100, y: -169}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

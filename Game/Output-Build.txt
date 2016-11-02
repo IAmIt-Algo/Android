@@ -1,0 +1,79 @@
+﻿1>------ Build started: Project: Game.CSharp, Configuration: Debug Any CPU ------
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level6\ScalesController.cs(8,27,8,35): warning CS0649: Field 'ScalesController.leftTray' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(27,27,27,39): warning CS0649: Field 'GuiController.victorySound' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level6\ScalesController.cs(10,27,10,36): warning CS0649: Field 'ScalesController.rightTray' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level6\WeighButton.cs(11,34,11,50): warning CS0649: Field 'WeighButton.scalesController' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\ActorController.cs(13,23,13,31): warning CS0649: Field 'ActorController.jumpTime' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\PurseController.cs(11,28,11,38): warning CS0649: Field 'PurseController.libraPurse' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\KnightController.cs(22,28,22,35): warning CS0649: Field 'KnightController.bucket5' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(21,24,21,31): warning CS0649: Field 'Level.bucket5' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\LibraController.cs(15,35,15,52): warning CS0649: Field 'LibraController.libraWeightWriter' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level4\Level.cs(12,27,12,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Map\MapSector.cs(13,28,13,39): warning CS0649: Field 'MapSector.realContent' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Runner.cs(15,28,15,43): warning CS0649: Field 'Runner.coinsStartPoint' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(25,28,25,39): warning CS0649: Field 'GuiController.rulesButton' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(26,22,26,32): warning CS0649: Field 'Level.BoatObject' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Runner.cs(17,28,17,41): warning CS0649: Field 'Runner.coinsEndPoint' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\PanAligner.cs(16,23,16,38): warning CS0649: Field 'PanAligner.defaultDistance' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(17,30,17,49): warning CS0649: Field 'GuiController.levelCompleteResult' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(15,21,15,36): warning CS0169: The field 'Level.bestStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\BoatController.cs(17,23,17,31): warning CS0649: Field 'BoatController.rawDelay' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Runner.cs(12,21,12,32): warning CS0649: Field 'Runner.coinsNumber' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level5\Icon.cs(9,24,9,35): warning CS0649: Field 'Icon.SwordSprite' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(21,28,21,37): warning CS0649: Field 'GuiController.mapButton' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Map\LevelStarter.cs(17,38,17,43): warning CS0649: Field 'LevelStarter.stars' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\KnightController.cs(20,28,20,35): warning CS0649: Field 'KnightController.bucket3' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level5\Icon.cs(13,24,13,44): warning CS0649: Field 'Icon.SwordAndShieldSprite' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(14,21,14,36): warning CS0169: The field 'Level.goodStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\PanAligner.cs(18,23,18,36): warning CS0649: Field 'PanAligner.weighDistance' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Level.cs(14,27,14,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(24,23,24,33): warning CS0649: Field 'Level.RightCoast' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Coast.cs(16,31,16,39): warning CS0649: Field 'Coast.Location' is never assigned to, and will always have its default value
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\ScalesController.cs(16,26,16,34): warning CS0649: Field 'ScalesController.rightPan' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\LibraController.cs(11,26,11,44): warning CS0649: Field 'LibraController.libraPurseAnimator' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\ScalesController.cs(18,28,18,39): warning CS0649: Field 'ScalesController.weighButton' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level5\Level.cs(16,27,16,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\LibraController.cs(13,28,13,38): warning CS0649: Field 'LibraController.libraPurse' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\Multilanguage.cs(12,27,12,43): warning CS0649: Field 'Multilanguage.multiLanguageXml' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Map\MapSector.cs(11,28,11,40): warning CS0649: Field 'MapSector.dummyContent' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Map\MapSector.cs(9,24,9,33): warning CS0649: Field 'MapSector.licenseId' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(22,23,22,32): warning CS0649: Field 'Level.LeftCoast' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(29,27,29,36): warning CS0649: Field 'GuiController.failSound' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\PanAligner.cs(14,23,14,34): warning CS0649: Field 'PanAligner.weighOffset' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\SplashScreen.cs(9,29,9,40): warning CS0649: Field 'SplashScreen.progressBar' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level5\Icon.cs(11,24,11,36): warning CS0649: Field 'Icon.ShieldSprite' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\MultilanguageRules.cs(14,35,14,58): warning CS0649: Field 'MultilanguageRules.multilanguageTextPrefab' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(23,28,23,48): warning CS0649: Field 'GuiController.changeLanguageButton' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(13,29,13,48): warning CS0649: Field 'GuiController.levelGameOverWindow' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level6\Level.cs(11,27,11,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level4\Tower.cs(16,22,16,31): warning CS0649: Field 'Tower.lastTower' is never assigned to, and will always have its default value false
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Runner.cs(10,22,10,32): warning CS0649: Field 'Runner.coinPrefab' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(12,21,12,36): warning CS0169: The field 'Level.bestStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\ActorController.cs(15,23,15,32): warning CS0649: Field 'ActorController.jumpDelay' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\BoatController.cs(15,23,15,30): warning CS0649: Field 'BoatController.rawTime' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\PanAligner.cs(12,23,12,36): warning CS0649: Field 'PanAligner.defaultOffset' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(19,29,19,40): warning CS0649: Field 'GuiController.rulesWindow' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\ScalesController.cs(14,26,14,33): warning CS0649: Field 'ScalesController.leftPan' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(17,21,17,36): warning CS0169: The field 'Level.goodStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level3\Pot.cs(9,28,9,45): warning CS0169: The field 'Pot.taskEventsHandler' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(19,21,19,35): warning CS0169: The field 'Level.badStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\MultilanguageRules.cs(12,28,12,45): warning CS0649: Field 'MultilanguageRules.contentGameObject' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Bucket.cs(12,21,12,29): warning CS0649: Field 'Bucket.capacity' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(16,21,16,35): warning CS0169: The field 'Level.badStepsNumber' is never used
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\ProgressBar.cs(10,28,10,40): warning CS0649: Field 'ProgressBar.progressView' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\PurseController.cs(14,21,14,31): warning CS0649: Field 'PurseController.coinWeight' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Map\LevelStarter.cs(12,24,12,31): warning CS0649: Field 'LevelStarter.levelId' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\ActorController.cs(11,23,11,31): warning CS0649: Field 'ActorController.walkTime' is never assigned to, and will always have its default value 0
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(19,24,19,31): warning CS0649: Field 'Level.bucket3' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level7\Level.cs(13,27,13,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level8\Level.cs(11,27,11,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\GuiController.cs(15,29,15,48): warning CS0649: Field 'GuiController.levelCompleteWindow' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\MultilanguageText.cs(10,24,10,26): warning CS0649: Field 'MultilanguageText.id' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level4\Tower.cs(14,28,14,37): warning CS0649: Field 'Tower.highlight' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\ProgressBar.cs(12,22,12,26): warning CS0649: Field 'ProgressBar.info' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level1\Level.cs(29,27,29,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level6\WeighButton.cs(13,32,13,44): warning CS0649: Field 'WeighButton.buttonSprite' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Gui\ResultSetter.cs(11,34,11,39): warning CS0649: Field 'ResultSetter.stars' is never assigned to, and will always have its default value null
+1>C:\Users\Никита\Desktop\Game\Assets\Scripts\Level2\Level.cs(24,27,24,32): warning CS0649: Field 'Level.rules' is never assigned to, and will always have its default value null
+1>  Game.CSharp -> C:\Users\Никита\Desktop\Game\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

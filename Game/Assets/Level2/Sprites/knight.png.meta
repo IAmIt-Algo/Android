@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 1e818af79264007448ec6c00188570e9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: feather
+    21300002: Armor
+    21300004: helmet1
+    21300006: ArmLeft
+    21300008: ShoulderL
+    21300010: ArmRight
+    21300012: helmet2
+    21300014: ShoulderR
+    21300016: Head
+    21300018: pupilL
+    21300020: pupilR
+    21300022: LegLeft
+    21300024: LegRight
+    21300026: eyeL
+    21300028: EyeR
+    21300030: belt
+    21300032: FootLeft
+    21300034: FootRight
+    21300036: Shadow
+    21300038: eyeCR
+    21300040: eyeCL
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: feather
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 742
+        width: 202
+        height: 161
+      alignment: 9
+      pivot: {x: .0908314362, y: .584478319}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Armor
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 626
+        width: 282
+        height: 264
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: helmet1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 540
+        width: 197
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArmLeft
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 346
+        width: 82
+        height: 209
+      alignment: 9
+      pivot: {x: .691383541, y: .88044703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShoulderL
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 497
+        width: 101
+        height: 115
+      alignment: 9
+      pivot: {x: .551793456, y: .763832152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArmRight
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 344
+        width: 82
+        height: 209
+      alignment: 9
+      pivot: {x: .321376145, y: .865429461}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: helmet2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 371
+        width: 188
+        height: 138
+      alignment: 9
+      pivot: {x: .92850858, y: .810836375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ShoulderR
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 351
+        width: 101
+        height: 115
+      alignment: 9
+      pivot: {x: .42748934, y: .72744143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 161
+        width: 180
+        height: 206
+      alignment: 9
+      pivot: {x: .581373274, y: .200352192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pupilL
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 218
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pupilR
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 215
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegLeft
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 161
+        width: 73
+        height: 151
+      alignment: 9
+      pivot: {x: .514332414, y: .700931549}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegRight
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 147
+        width: 88
+        height: 183
+      alignment: 9
+      pivot: {x: .523778021, y: .740118146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eyeL
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 158
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeR
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 156
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: belt
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 66
+        width: 169
+        height: 91
+      alignment: 9
+      pivot: {x: .493809134, y: .695449471}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FootLeft
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 68
+        width: 117
+        height: 70
+      alignment: 9
+      pivot: {x: .72355324, y: .664408028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FootRight
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 45
+        width: 141
+        height: 84
+      alignment: 9
+      pivot: {x: .730022013, y: .661916852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eyeCR
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 249
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eyeCL
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 252
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

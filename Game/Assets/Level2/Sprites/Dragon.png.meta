@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 952e29a9b6e6e3149b76d2d2c85e618b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WingL
+    21300002: WingR
+    21300004: neck12
+    21300006: Neck2
+    21300008: Body
+    21300010: EyeC3
+    21300012: Dragon_6
+    21300014: EyeO3
+    21300016: Dragon_8
+    21300018: HandL
+    21300020: HandR
+    21300022: EyeC1
+    21300024: Dragon_12
+    21300026: EyeO1
+    21300028: Dragon_14
+    21300030: EyeC2
+    21300032: Dragon_16
+    21300034: EyeO2
+    21300036: Dragon_18
+    21300038: Head3
+    21300040: Head1
+    21300042: Head2
+    21300044: Shadow
+    21300046: Neck3
+    21300048: Neck11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WingL
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1538
+        width: 223
+        height: 211
+      alignment: 9
+      pivot: {x: .864122033, y: .332253993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WingR
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1547
+        width: 224
+        height: 210
+      alignment: 9
+      pivot: {x: .128209248, y: .321540773}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: neck12
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1579
+        width: 186
+        height: 191
+      alignment: 9
+      pivot: {x: .231350809, y: .837921917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Neck2
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 1266
+        width: 230
+        height: 337
+      alignment: 9
+      pivot: {x: .146960452, y: .129312307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 869
+        width: 632
+        height: 616
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeC3
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 801
+        width: 86
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeO3
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 803
+        width: 87
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HandL
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 673
+        width: 160
+        height: 193
+      alignment: 9
+      pivot: {x: .838329673, y: .80205667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HandR
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 748
+        width: 225
+        height: 102
+      alignment: 9
+      pivot: {x: .194635421, y: .74494487}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeC1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 731
+        width: 94
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeO1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 731
+        width: 95
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeC2
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 741
+        width: 84
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeO2
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 741
+        width: 83
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head3
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 493
+        width: 247
+        height: 301
+      alignment: 9
+      pivot: {x: .280838817, y: .728262544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 490
+        width: 189
+        height: 232
+      alignment: 9
+      pivot: {x: .511015773, y: .76922816}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 490
+        width: 229
+        height: 243
+      alignment: 9
+      pivot: {x: .354530305, y: .722768784}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 1163
+        height: 488
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Neck3
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 952
+        width: 393
+        height: 282
+      alignment: 9
+      pivot: {x: .0973684713, y: .145612344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Neck11
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1215
+        width: 150
+        height: 390
+      alignment: 9
+      pivot: {x: .666562498, y: .136979789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

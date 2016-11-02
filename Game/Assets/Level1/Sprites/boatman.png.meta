@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: dd252b347e55cdc478be18e6ba493e58
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Hat
+    21300002: BrowLeft
+    21300004: BrowRight
+    21300006: ArmL
+    21300008: ArmR
+    21300010: EyeLeft
+    21300012: EyeRight
+    21300014: Head
+    21300016: HeandL
+    21300018: HeandR
+    21300020: LegL
+    21300022: LegR
+    21300024: Body
+    21300026: PupilsL
+    21300028: PupilsR
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Hat
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 595
+        width: 120
+        height: 84
+      alignment: 9
+      pivot: {x: .513323843, y: .157381326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BrowLeft
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 660
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BrowRight
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 658
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArmL
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 555
+        width: 109
+        height: 118
+      alignment: 9
+      pivot: {x: .705361485, y: .811647594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ArmR
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 555
+        width: 109
+        height: 118
+      alignment: 9
+      pivot: {x: .68335855, y: .811647594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeLeft
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 609
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyeRight
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 607
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 340
+        width: 177
+        height: 238
+      alignment: 9
+      pivot: {x: .450316966, y: .332049578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeandL
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 305
+        width: 141
+        height: 232
+      alignment: 9
+      pivot: {x: .443301797, y: .906613827}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HeandR
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 323
+        width: 117
+        height: 214
+      alignment: 9
+      pivot: {x: .506832778, y: .892250717}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegL
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 82
+        width: 139
+        height: 209
+      alignment: 9
+      pivot: {x: .361966372, y: .897809505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegR
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 86
+        width: 134
+        height: 200
+      alignment: 9
+      pivot: {x: .37471351, y: .88773042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 289
+        height: 304
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PupilsL
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 583
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PupilsR
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 580
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

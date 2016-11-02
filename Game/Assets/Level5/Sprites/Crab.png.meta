@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 962ad0b6f42776c45bd5b53e5e05aa26
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: clawL
+    21300002: clawR
+    21300004: Eyes
+    21300006: clawR2
+    21300008: Eyes2
+    21300010: ClawL
+    21300012: Body
+    21300014: EyesC
+    21300016: Shadow
+    21300018: clawL1
+    21300020: clawL2
+    21300022: clawR1
+    21300024: Eyes
+    21300026: ClawR
+    21300028: LegBR
+    21300030: LegLeftU
+    21300032: LegRightU
+    21300034: Body
+    21300036: LegBL
+    21300038: LegLeft
+    21300040: LegRight
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: clawL1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 294
+        width: 64
+        height: 117
+      alignment: 9
+      pivot: {x: .701870322, y: .140096545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: clawL2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 294
+        width: 62
+        height: 118
+      alignment: 9
+      pivot: {x: .245310381, y: .159367189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: clawR1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 294
+        width: 64
+        height: 117
+      alignment: 9
+      pivot: {x: .739253759, y: .180994794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: clawR2
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 294
+        width: 62
+        height: 118
+      alignment: 9
+      pivot: {x: .314771086, y: .183698237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eyes
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 328
+        width: 79
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ClawL
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 241
+        width: 54
+        height: 49
+      alignment: 9
+      pivot: {x: .765837491, y: .226566866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ClawR
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 241
+        width: 54
+        height: 49
+      alignment: 9
+      pivot: {x: .225301102, y: .246097803}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EyesC
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 258
+        width: 79
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegBR
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 118
+        width: 57
+        height: 95
+      alignment: 9
+      pivot: {x: .189389646, y: .877769232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegLeftU
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 172
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: .703366101, y: .703365326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegRightU
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 172
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: .296633899, y: .691402793}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 114
+        width: 223
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegBL
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 8
+        width: 57
+        height: 95
+      alignment: 9
+      pivot: {x: .777030766, y: .867695272}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegLeft
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 87
+        width: 39
+        height: 72
+      alignment: 9
+      pivot: {x: .622694135, y: .812359095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LegRight
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 87
+        width: 39
+        height: 72
+      alignment: 9
+      pivot: {x: .365036011, y: .812359095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 3
+        width: 324
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

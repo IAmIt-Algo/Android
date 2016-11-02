@@ -1,0 +1,15 @@
+<Rules>
+  <ParagraphsSequence>
+    <Paragraph id="paragraph_1"/>
+  </ParagraphsSequence>
+  <Language id="English">
+    <Paragraph id="paragraph_1">
+      English Version. Отмерить промежуток в 45 секунд, если известно, что каждая веревка горит по 60 секунд.
+    </Paragraph>
+  </Language>
+  <Language id="Russian">
+    <Paragraph id="paragraph_1">
+      Отмерить промежуток в 45 секунд, если известно, что каждая веревка горит по 60 секунд.
+    </Paragraph>
+  </Language>
+</Rules>

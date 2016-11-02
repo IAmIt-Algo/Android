@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 6915ef2e856e77146a14f9af22e17eea
+timeCreated: 1445882879
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Rope_0
+    21300002: Rope_1
+    21300004: Rope_2
+    21300006: Flag_1
+    21300008: Flag_2
+    21300010: Rope_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Rope_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 631
+        width: 890
+        height: 373
+      alignment: 9
+      pivot: {x: .503801107, y: .373024791}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rope_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 391
+        width: 263
+        height: 205
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rope_2
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 391
+        width: 295
+        height: 210
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Flag_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 183
+        width: 109
+        height: 157
+      alignment: 9
+      pivot: {x: .303435087, y: .679564238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Flag_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 126
+        width: 136
+        height: 223
+      alignment: 9
+      pivot: {x: .342459053, y: .808463633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rope_5
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 262
+        height: 361
+      alignment: 9
+      pivot: {x: .293405443, y: .784258306}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
