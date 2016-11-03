@@ -40,6 +40,7 @@ namespace Mindblower.Menu
                 }
         public void Settings() {
             SceneManager.LoadScene("Settings");
+          bool  toggleBool = GUI.Toggle(new Rect(25, 25, 100, 30), true, "Toggle");
         }
         public void Rating() {
             SceneManager.LoadScene("Rating");
@@ -48,6 +49,13 @@ namespace Mindblower.Menu
         {
             SceneManager.LoadScene("MenuLevel");
         }
+        public void SoundOff(bool b) {
+            if(b)
+            AudioListener.volume = 1;
+            else
+                AudioListener.volume = 0;
+        }
+       
     }
 }
 
