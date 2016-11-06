@@ -28,7 +28,7 @@ namespace Mindblower.Core
             }
 
             yield return null; //Let gui scene full load
-            levelsLoader.LoadLevel("MapLevel");
+            SceneManager.LoadScene("StartLevel");
 
             Destroy(this); 
         }

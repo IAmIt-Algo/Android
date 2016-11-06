@@ -33,3 +33,9 @@ EditorBuildSettings:
     path: Assets/MenuLevel/Scenes/Settings.unity
   - enabled: 1
     path: Assets/MenuLevel/Scenes/Rating.unity
+  - enabled: 1
+    path: Assets/StartLevel/Scenes/StartLevel.unity
+  - enabled: 1
+    path: Assets/SignUpLevel/Scenes/SignUpLevel.unity
+  - enabled: 1
+    path: Assets/SignInLevel/Scenes/SignInLevel.unity
