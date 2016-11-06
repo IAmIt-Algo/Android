@@ -1,10 +1,12 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Core;
+using System;
 
 namespace Mindblower.Level3
 {
-    public class Level : MonoBehaviour, ITaskEventsHandler
+    public class Level : MonoBehaviour, ITaskEventsHandler, IAmItRequestListener
     {
         public static bool IsBusy = false;
 
@@ -44,13 +46,47 @@ namespace Mindblower.Level3
                 else
                     result = 1;
                 if (levelEventsHandler != null)
+                {
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+
+                    AddAttemptModel model = new AddAttemptModel();
+                    model.LevelName = "3";
+                    model.Stars = result;
+                    model.Time = 0;
+
+                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+                }
             }
         }
 
         public void OnWeightCheck()
         {
             ++stepsNumber;
+        }
+
+        public void OnLogin()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnFail(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnGet(string response)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnPost(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnLogOut()
+        {
+            throw new NotImplementedException();
         }
     }
 }

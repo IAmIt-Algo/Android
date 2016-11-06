@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Core;
+using System;
 
 namespace Mindblower.Level5
 {
-    public class Level : MonoBehaviour, IStoneClickHandler, ITaskEventsHandler
+    public class Level : MonoBehaviour, IStoneClickHandler, ITaskEventsHandler, IAmItRequestListener
     {
         private const int cratesNumber = 3;
         private List<Crate> crates;
@@ -123,12 +125,46 @@ namespace Mindblower.Level5
                 result = 1;
 
             if (levelEventsHandler != null)
+            {
                 ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+
+                AddAttemptModel model = new AddAttemptModel();
+                model.LevelName = "5";
+                model.Stars = result;
+                model.Time = 0;
+
+                IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+            }
         }
 
         public void OnCreateClick()
         {
             ++stepsNumber;
+        }
+
+        public void OnLogin()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnFail(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnGet(string response)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnPost(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnLogOut()
+        {
+            throw new NotImplementedException();
         }
     }
 }

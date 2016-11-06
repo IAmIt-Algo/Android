@@ -14,7 +14,7 @@ namespace Assets.Scripts.Core
         private const string SERVER_ADDRESS = "http://ec2-184-72-112-237.compute-1.amazonaws.com/";
         private static string token;
 
-        public static void registration(UserRegistrationModel model, IAmItRequestListener listener)
+        public static void Registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
 
@@ -29,7 +29,6 @@ namespace Assets.Scripts.Core
                 stream.Write(data, 0, data.Length);
             }
 
-            HttpListener httpListener = new HttpListener();
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.ToString().Equals("200"))
             {
@@ -43,7 +42,7 @@ namespace Assets.Scripts.Core
 
         }
 
-        public static void login(UserLoginModel model, IAmItRequestListener listener)
+        public static void Login(UserLoginModel model, IAmItRequestListener listener)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.LOGIN);
 
@@ -57,8 +56,7 @@ namespace Assets.Scripts.Core
             {
                 stream.Write(data, 0, data.Length);
             }
-
-            HttpListener httpListener = new HttpListener();
+            
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.ToString().Equals("200"))
             {
@@ -83,11 +81,11 @@ namespace Assets.Scripts.Core
             }
         }
 
-        public static void post(string paramData, string method, IAmItRequestListener listener)
+        public static void Post <T> (T model, string method, IAmItRequestListener listener)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
-
-            var data = Encoding.ASCII.GetBytes(paramData);
+            
+            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
             request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
@@ -98,8 +96,7 @@ namespace Assets.Scripts.Core
             {
                 stream.Write(data, 0, data.Length);
             }
-
-            HttpListener httpListener = new HttpListener();
+            
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.ToString().Equals("200"))
             {
@@ -112,7 +109,7 @@ namespace Assets.Scripts.Core
             }
         }
 
-        public static void get(string method, IAmItRequestListener listener)
+        public static void Get(string method, IAmItRequestListener listener)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
             request.Method = "GET";
