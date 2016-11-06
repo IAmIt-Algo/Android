@@ -8,9 +8,10 @@ namespace Mindblower.Menu
 {
     public class LevelStarter : MonoBehaviour
     {
+       
         [SerializeField]
         private string levelId;
-
+ bool sound = false;
         private LevelsLoader levelsLoader;
 
         [SerializeField]
@@ -23,6 +24,8 @@ namespace Mindblower.Menu
 
         void Start()
         {
+            if(AudioListener.volume==1)
+            sound = true;
             int result = PlayerPrefs.GetInt(levelId, 0);
             stars.ForEach(x => x.enabled = false);
             for (int i = 0; i < result; ++i)
@@ -40,7 +43,17 @@ namespace Mindblower.Menu
                 }
         public void Settings() {
             SceneManager.LoadScene("Settings");
-          bool  toggleBool = GUI.Toggle(new Rect(25, 25, 100, 30), true, "Toggle");
+            
+          GUI.Button(new Rect(25, 25, 100, 30), "Sound");
+        }
+        void OnGUI()
+        {
+            if (sound)
+            {
+               GUI.Label(new Rect(500, 250, 200, 100), "Sound is On");
+                    
+
+            }
         }
         public void Rating() {
             SceneManager.LoadScene("Rating");
@@ -49,11 +62,13 @@ namespace Mindblower.Menu
         {
             SceneManager.LoadScene("MenuLevel");
         }
-        public void SoundOff(bool b) {
-            if(b)
-            AudioListener.volume = 1;
-            else
+        public void Sound(bool b) {
+            if (!sound) { 
+                AudioListener.volume = 1;
+            sound = true; }
+            else{
                 AudioListener.volume = 0;
+                sound = false; }
         }
        
     }

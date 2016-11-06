@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace Mindblower.Map
 {
@@ -14,7 +15,7 @@ namespace Mindblower.Map
             }
             if (Input.GetKeyDown(KeyCode.Menu))
             {
-                Application.LoadLevel(11);
+                SceneManager.LoadScene(11);
             }
         }
     }
