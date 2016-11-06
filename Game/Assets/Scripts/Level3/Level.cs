@@ -13,6 +13,9 @@ namespace Mindblower.Level3
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result;
+
         private int stepsNumber;
 
         void Awake()
@@ -36,16 +39,28 @@ namespace Mindblower.Level3
             }
             else
             {
-                int result;
                 if (stepsNumber <= 3)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 4)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
             }
+        }
+
+        void OnDisable()
+        {
+            var info = new LevelInfo
+            {
+                LevelId = "Level3",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+            if (levelEventsHandler != null)
+                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            Debug.Log("Cancel");
         }
 
         public void OnWeightCheck()

@@ -28,6 +28,9 @@ namespace Mindblower.Level1
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result;
+
         void Awake()
         {
             stepsNumber = 0;
@@ -68,20 +71,29 @@ namespace Mindblower.Level1
         {
             if  (RightCoast.HasAllCharacters)
             {
-                int result;
                 if (stepsNumber <= 17)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 20)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
 
                 if (levelEventsHandler != null)
-                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
                 Debug.Log("Victory!");
             }
         }
-
+        void OnDisable()
+        {
+            var info = new LevelInfo
+            {
+                LevelId = "Level1",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+            ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            Debug.Log("Cancel");
+        }
         public void OnBoatMoved()
         {
             ++stepsNumber;

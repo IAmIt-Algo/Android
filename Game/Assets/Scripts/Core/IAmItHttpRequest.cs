@@ -2,10 +2,11 @@
 using System.Net;
 using System.IO;
 using System.Collections.Generic;
+using System.Threading;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
-namespace Assets.Scripts.Core
+namespace Mindblower.Core
 {
 
     public class IAmItHttpRequest
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Core
 
         public static void registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
+
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
 
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
@@ -165,7 +167,7 @@ namespace Assets.Scripts.Core
     {
         public static string LOGIN = "login";
         public static string REGISTRATION = "registration";
-        public static string ADD_ATTEPT = "addAttempt";
+        public static string ADD_ATTEMPT = "addAttempt";
         public static string CHANGE_CREDENTIALS = "changeCredentials";
         public static string GET_RATING_POSITION = "getRatingPosition ";
         public static string LOGOUT = "logOff";

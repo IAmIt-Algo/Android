@@ -23,6 +23,9 @@ namespace Mindblower.Level2
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result;
+
         private int stepsNumber;
         private GameObject levelEventsHandler;
 
@@ -43,17 +46,27 @@ namespace Mindblower.Level2
             ++stepsNumber;
             if (bucket3.CurrentVolume == 4 || bucket5.CurrentVolume == 4)
             {
-                int result;
                 if (stepsNumber <= 6)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 8)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
 
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
             }
+        }
+        void OnDisable()
+        {
+            var info = new LevelInfo
+            {
+                LevelId = "Level2",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+            ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            Debug.Log("Cancel");
         }
     }
 }
