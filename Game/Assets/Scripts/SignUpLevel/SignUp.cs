@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using Mindblower.Gui;
 
 
 public class SignUp : MonoBehaviour {
