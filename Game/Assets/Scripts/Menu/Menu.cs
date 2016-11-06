@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
 
-	public void BackToMap()
+    public void BackToMap()
     {
         SceneManager.LoadScene("MapLevel");
     }

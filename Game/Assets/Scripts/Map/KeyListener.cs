@@ -13,7 +13,7 @@ namespace Mindblower.Map
                 Debug.Log("ESCAPE!!!");
                 Application.Quit();
             }
-            if (Input.GetKeyDown(KeyCode.Menu))
+            if (Input.GetKeyDown(KeyCode.Backspace))
             {
                 SceneManager.LoadScene(11);
             }
