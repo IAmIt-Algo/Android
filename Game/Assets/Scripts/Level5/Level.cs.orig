@@ -127,6 +127,7 @@ namespace Mindblower.Level5
                 Result = 1;
 
             if (levelEventsHandler != null)
+<<<<<<< HEAD
                 ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
         }
         void OnDisable()
@@ -140,6 +141,18 @@ namespace Mindblower.Level5
             if (levelEventsHandler != null)
                 ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
             Debug.Log("Cancel");
+=======
+            {
+                ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+
+                AddAttemptModel model = new AddAttemptModel();
+                model.LevelName = "5";
+                model.Stars = result;
+                model.Time = 0;
+
+                IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+            }
+>>>>>>> origin/Maxim
         }
 
         public void OnCreateClick()

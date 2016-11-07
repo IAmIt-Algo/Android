@@ -82,7 +82,11 @@ namespace Mindblower.Level1
                     Result = 1;
 
                 if (levelEventsHandler != null)
+<<<<<<< HEAD
                     ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+=======
+                {
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
 
 
                     AddAttemptModel model = new AddAttemptModel();
@@ -93,6 +97,7 @@ namespace Mindblower.Level1
                     IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
 
                 }
+>>>>>>> origin/Maxim
                 Debug.Log("Victory!");
             }
         }

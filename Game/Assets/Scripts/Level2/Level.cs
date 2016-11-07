@@ -1,10 +1,12 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Core;
+using System;
 
 namespace Mindblower.Level2
 {
-    public class Level : MonoBehaviour, ITaskEventsHandler
+    public class Level : MonoBehaviour, ITaskEventsHandler, IAmItRequestListener
     {
         public static bool IsBusy = false;
 
@@ -55,7 +57,21 @@ namespace Mindblower.Level2
 
                 if (levelEventsHandler != null)
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+
+                    AddAttemptModel model = new AddAttemptModel();
+                    model.LevelName = "2";
+                    model.Stars = result;
+                    model.Time = 0;
+
+                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+                }
             }
+        }
+
+        public void OnLogin()
+        {
+            throw new NotImplementedException();
+        }
         }
         void OnDisable()
         {
@@ -67,6 +83,14 @@ namespace Mindblower.Level2
             };
             ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
             Debug.Log("Cancel");
+        public void OnPost(string s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnLogOut()
+        {
+            throw new NotImplementedException();
         }
     }
 }

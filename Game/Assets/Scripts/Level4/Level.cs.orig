@@ -4,12 +4,10 @@ using UnityEngine.EventSystems;
 using Assets.Scripts.Core;
 using System;
 
-namespace Mindblower.Level3
+namespace Mindblower.Level4
 {
     public class Level : MonoBehaviour, ITaskEventsHandler, IAmItRequestListener
     {
-        public static bool IsBusy = false;
-
         private GameObject levelEventsHandler;
 
         [SerializeField]
@@ -19,6 +17,52 @@ namespace Mindblower.Level3
         private int Result;
 
         private int stepsNumber;
+
+        public void OnTurtlePushLastTower(Tower tower)
+        {
+            if (tower.TurtlesCount == 4)
+            {
+                if (stepsNumber <= 15)
+                    Result = 3;
+                else if (stepsNumber <= 19)
+                    Result = 2;
+                else
+                    Result = 1;
+                if (levelEventsHandler != null)
+<<<<<<< HEAD
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+=======
+                {
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+
+                    AddAttemptModel model = new AddAttemptModel();
+                    model.LevelName = "4";
+                    model.Stars = result;
+                    model.Time = 0;
+
+                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+                }
+>>>>>>> origin/Maxim
+            }
+        }
+
+        void OnDisable()
+        {
+            var info = new LevelInfo
+            {
+                LevelId = "Level4",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+            if (levelEventsHandler != null)
+                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            Debug.Log("Cancel");
+        }
+
+        public void OnTurtlePush()
+        {
+            ++stepsNumber;
+        }
 
         void Awake()
         {
@@ -30,52 +74,6 @@ namespace Mindblower.Level3
         {
             if (levelEventsHandler != null)
                 ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelLoaded(rules));
-        }
-
-        public void OnCoinCheck(Coin coin)
-        {
-            if (coin.Weight == 10)
-            {
-                if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
-            }
-            else
-            {
-                if (stepsNumber <= 3)
-                    Result = 3;
-                else if (stepsNumber <= 4)
-                    Result = 2;
-                else
-                    Result = 1;
-                if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
-            }
-
-                    AddAttemptModel model = new AddAttemptModel();
-                    model.LevelName = "3";
-                    model.Stars = result;
-                    model.Time = 0;
-
-                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
-                }
-        }
-
-        void OnDisable()
-        {
-            var info = new LevelInfo
-            {
-                LevelId = "Level3",
-                StarsCount = Result,
-                Time = (int)Time.timeSinceLevelLoad
-            };
-            if (levelEventsHandler != null)
-                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
-            Debug.Log("Cancel");
-        }
-
-        public void OnWeightCheck()
-        {
-            ++stepsNumber;
         }
 
         public void OnLogin()

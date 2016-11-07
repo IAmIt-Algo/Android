@@ -48,8 +48,11 @@ namespace Mindblower.Level3
                 else
                     Result = 1;
                 if (levelEventsHandler != null)
+<<<<<<< HEAD
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
-            }
+=======
+                {
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
 
                     AddAttemptModel model = new AddAttemptModel();
                     model.LevelName = "3";
@@ -58,6 +61,8 @@ namespace Mindblower.Level3
 
                     IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
                 }
+>>>>>>> origin/Maxim
+            }
         }
 
         void OnDisable()
