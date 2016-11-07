@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-using Newtonsoft.Json;
 
 namespace Mindblower.Core
 {
@@ -60,9 +59,7 @@ namespace Mindblower.Core
                 Stars = info.StarsCount,
                 Time = info.Time
             };
-            var data = JsonConvert.SerializeObject(model);
-            
-            IAmItHttpRequest.post(data,IAmItServerMethods.ADD_ATTEMPT, this);
+            IAmItHttpRequest.Post<AddAttemptModel>(model, IAmItServerMethods.ADD_ATTEMPT, this);
         }
 
         public void OnLogin()

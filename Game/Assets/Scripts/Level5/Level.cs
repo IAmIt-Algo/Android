@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Assets.Scripts.Core;
-using System;
 
 namespace Mindblower.Level5
 {
-    public class Level : MonoBehaviour, IStoneClickHandler, ITaskEventsHandler, IAmItRequestListener
+    public class Level : MonoBehaviour, IStoneClickHandler, ITaskEventsHandler
     {
         private const int cratesNumber = 3;
         private List<Crate> crates;
@@ -145,31 +143,6 @@ namespace Mindblower.Level5
         public void OnCreateClick()
         {
             ++stepsNumber;
-        }
-
-        public void OnLogin()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnFail(string code)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnGet(string response)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnPost(string s)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnLogOut()
-        {
-            throw new NotImplementedException();
         }
     }
 }
