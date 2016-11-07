@@ -87,6 +87,7 @@ namespace Mindblower.Level1
 =======
                 {
                     ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+>>>>>>> Maxim
 
 
                     AddAttemptModel model = new AddAttemptModel();
@@ -97,7 +98,6 @@ namespace Mindblower.Level1
                     IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
 
                 }
->>>>>>> origin/Maxim
                 Debug.Log("Victory!");
             }
         }

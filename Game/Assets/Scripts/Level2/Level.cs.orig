@@ -58,21 +58,10 @@ namespace Mindblower.Level2
                 if (levelEventsHandler != null)
 <<<<<<< HEAD
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
-            }
-        }
-        void OnDisable()
-        {
-            var info = new LevelInfo
-            {
-                LevelId = "Level2",
-                StarsCount = Result,
-                Time = (int)Time.timeSinceLevelLoad
-            };
-            ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
-            Debug.Log("Cancel");
 =======
                 {
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+>>>>>>> Maxim
 
                     AddAttemptModel model = new AddAttemptModel();
                     model.LevelName = "2";
@@ -88,6 +77,19 @@ namespace Mindblower.Level2
         {
             throw new NotImplementedException();
         }
+<<<<<<< HEAD
+        }
+        void OnDisable()
+        {
+            var info = new LevelInfo
+            {
+                LevelId = "Level2",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+            ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            Debug.Log("Cancel");
+=======
 
         public void OnFail(string code)
         {
@@ -99,6 +101,7 @@ namespace Mindblower.Level2
             throw new NotImplementedException();
         }
 
+>>>>>>> Maxim
         public void OnPost(string s)
         {
             throw new NotImplementedException();
@@ -107,7 +110,6 @@ namespace Mindblower.Level2
         public void OnLogOut()
         {
             throw new NotImplementedException();
->>>>>>> origin/Maxim
         }
     }
 }

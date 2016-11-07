@@ -61,8 +61,16 @@ namespace Mindblower.Level3
 
                     IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
                 }
->>>>>>> origin/Maxim
+>>>>>>> Maxim
             }
+
+                    AddAttemptModel model = new AddAttemptModel();
+                    model.LevelName = "3";
+                    model.Stars = result;
+                    model.Time = 0;
+
+                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+                }
         }
 
         void OnDisable()

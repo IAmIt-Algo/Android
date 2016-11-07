@@ -30,6 +30,14 @@ namespace Mindblower.Level4
                     Result = 1;
                 if (levelEventsHandler != null)
                     ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+
+                    AddAttemptModel model = new AddAttemptModel();
+                    model.LevelName = "4";
+                    model.Stars = result;
+                    model.Time = 0;
+
+                    IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
+                }
             }
 
                     AddAttemptModel model = new AddAttemptModel();

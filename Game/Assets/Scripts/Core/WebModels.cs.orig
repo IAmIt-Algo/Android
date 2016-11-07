@@ -7,7 +7,7 @@ using System.Text;
 namespace Mindblower.Core
 =======
 namespace Assets.Scripts.Core
->>>>>>> origin/Maxim
+>>>>>>> Maxim
 {
     public class UserRegistrationModel
     {

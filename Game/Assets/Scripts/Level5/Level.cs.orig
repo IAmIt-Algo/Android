@@ -152,7 +152,7 @@ namespace Mindblower.Level5
 
                 IAmItHttpRequest.Post(model, IAmItServerMethods.ADD_ATTEPT, this);
             }
->>>>>>> origin/Maxim
+>>>>>>> Maxim
         }
 
         public void OnCreateClick()
