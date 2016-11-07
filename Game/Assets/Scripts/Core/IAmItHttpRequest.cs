@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using UnityEngine;
 namespace Mindblower.Core
 {
 
@@ -16,7 +17,12 @@ namespace Mindblower.Core
 
         public static void Registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
+            string url = SERVER_ADDRESS + IAmItServerMethods.REGISTRATION;
+            Debug.Log("In Registration: " + url);
+
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+
+            Debug.Log("In Registration: " + JsonConvert.SerializeObject(model));
 
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
@@ -101,7 +107,7 @@ namespace Mindblower.Core
             if (response.StatusCode.ToString().Equals("200"))
             {
                 listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                //JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
             }
             else
             {

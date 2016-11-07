@@ -44,7 +44,7 @@ namespace Mindblower.Level5
                 bool isDone = false;
                 while (!isDone)
                 {
-                    int contentTypeIndex = Random.Range(0, cratesNumber);
+                    int contentTypeIndex = UnityEngine.Random.Range(0, cratesNumber);
                     ContentType content = (ContentType)contentTypeIndex;
                     if (!used[contentTypeIndex])
                     {
@@ -64,7 +64,7 @@ namespace Mindblower.Level5
             {
                 if (crates[i].Content == ContentType.SwordAndShield)
                 {
-                    int iconTypeIndex = Random.Range(0, 2);
+                    int iconTypeIndex = UnityEngine.Random.Range(0, 2);
                     ContentType icon = (ContentType)iconTypeIndex;
 
                     crates[i].Icon = icon;
