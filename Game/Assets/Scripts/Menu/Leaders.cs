@@ -16,7 +16,7 @@ public class Leaders : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        content.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0f, (names.Length+1)*30f);
+        content.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0f, names.Length*30f);
         for (int t = 0; t < names.Length; t++)
         {
             player = new GameObject("Player" + t, typeof(LayoutElement), typeof(HorizontalLayoutGroup), typeof(RectTransform));
