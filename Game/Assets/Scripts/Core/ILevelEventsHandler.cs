@@ -8,5 +8,6 @@ namespace Mindblower.Core
         void OnLevelLoaded(TextAsset rules);
         void OnLevelComplete(int result);
         void OnLevelGameOver();
+        void OnLevelCanceled(LevelInfo info);
     }
 }

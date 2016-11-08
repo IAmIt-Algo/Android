@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
 using Mindblower.Gui;
 using Mindblower.Core;
 using System;
 using UnityEngine.UI;
+=======
+
+>>>>>>> origin/master
 
 public class SignUp : MonoBehaviour, IAmItRequestListener {
 
