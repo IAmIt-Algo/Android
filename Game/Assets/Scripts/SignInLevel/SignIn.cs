@@ -4,15 +4,18 @@ using UnityEngine.SceneManagement;
 using Mindblower.Gui;
 using Mindblower.Core;
 using System;
+using UnityEngine.UI;
 
 public class SignIn : MonoBehaviour, IAmItRequestListener {
 
+    public Text inputEmail;
+    public Text inputPassword;
 
     public void ButtonClick()
     {
         UserLoginModel model = new UserLoginModel();
-        model.Email = "";
-        model.Password = "";
+        model.Email = inputEmail.text;
+        model.Password = inputPassword.text;
 
         IAmItHttpRequest.Login(model, this);
         //SceneManager.LoadScene("MapLevel");

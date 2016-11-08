@@ -17,17 +17,15 @@ namespace Mindblower.Core
 
         public static void Registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
-            string url = SERVER_ADDRESS + IAmItServerMethods.REGISTRATION;
-            Debug.Log("In Registration: " + url);
 
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
 
             Debug.Log("In Registration: " + JsonConvert.SerializeObject(model));
 
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentType = "application/json";
             request.ContentLength = data.Length;
 
             using (var stream = request.GetRequestStream())
@@ -36,7 +34,7 @@ namespace Mindblower.Core
             }
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.ToString().Equals("200"))
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
                 JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
@@ -52,10 +50,12 @@ namespace Mindblower.Core
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.LOGIN);
 
+            Debug.Log("In Login: " + JsonConvert.SerializeObject(model));
+
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentType = "application/json";
             request.ContentLength = data.Length;
 
             using (var stream = request.GetRequestStream())
@@ -64,7 +64,7 @@ namespace Mindblower.Core
             }
             
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.ToString().Equals("200"))
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 string cookies = response.Headers.Get("Set-Cookie");
                 cookies.Trim();
@@ -73,6 +73,7 @@ namespace Mindblower.Core
                     if (cookies.ElementAt(i) == ';')
                     {
                         token = cookies.Substring(26, i);
+                        Debug.Log("In Login: token is " + token);
                         break;
                     }
 
@@ -95,7 +96,7 @@ namespace Mindblower.Core
 
             request.Method = "POST";
             request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
-            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentType = "application/json";
             request.ContentLength = data.Length;
 
             using (var stream = request.GetRequestStream())
@@ -104,7 +105,7 @@ namespace Mindblower.Core
             }
             
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.ToString().Equals("200"))
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
                 //JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
@@ -121,7 +122,7 @@ namespace Mindblower.Core
             request.Method = "GET";
             request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.ToString().Equals("200"))
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
                 JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
