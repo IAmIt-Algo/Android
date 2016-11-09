@@ -28,7 +28,7 @@ public class SignIn : MonoBehaviour, IAmItRequestListener {
         //Неверно введен логин или пароль, обработать.
     }
 
-    public void OnGet(string response)
+    public void OnGet<T>(T responseModel)
     {
         throw new NotImplementedException();
     }

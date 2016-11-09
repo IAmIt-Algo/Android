@@ -6,8 +6,8 @@ namespace Mindblower.Core
     public interface ILevelEventsHandler : IEventSystemHandler
     {
         void OnLevelLoaded(TextAsset rules);
-        void OnLevelComplete(int result);
-        void OnLevelGameOver();
+        void OnLevelComplete(LevelInfo info);
+        void OnLevelGameOver(LevelInfo info);
         void OnLevelCanceled(LevelInfo info);
     }
 }

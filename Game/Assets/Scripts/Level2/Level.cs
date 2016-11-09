@@ -25,9 +25,11 @@ namespace Mindblower.Level2
         private TextAsset rules;
 
         [SerializeField]
-        private int Result;
+        private int Result = 0;
 
         private int stepsNumber;
+        private bool isGameOvered = false;
+
         private GameObject levelEventsHandler;
 
         void Awake()
@@ -47,6 +49,8 @@ namespace Mindblower.Level2
             ++stepsNumber;
             if (bucket3.CurrentVolume == 4 || bucket5.CurrentVolume == 4)
             {
+                isGameOvered = true;
+
                 if (stepsNumber <= 6)
                     Result = 3;
                 else if (stepsNumber <= 8)
@@ -54,20 +58,29 @@ namespace Mindblower.Level2
                 else
                     Result = 1;
 
+                var info = new LevelInfo
+                {
+                    LevelId = "Level2",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
             }
         }
 
         void OnDisable()
         {
-            var info = new LevelInfo
-            {
-                LevelId = "Level2",
-                StarsCount = Result,
-                Time = (int)Time.timeSinceLevelLoad
-            };
-            ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            if (!isGameOvered) {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level2",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
             Debug.Log("Cancel");
         }
     }

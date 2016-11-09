@@ -61,7 +61,7 @@ public class SignUp : MonoBehaviour, IAmItRequestListener {
         
     }
 
-    public void OnGet(string response)
+    public void OnGet<T>(T responseModel)
     {
         throw new NotImplementedException();
     }

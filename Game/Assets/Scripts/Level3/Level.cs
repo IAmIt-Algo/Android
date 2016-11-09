@@ -15,7 +15,9 @@ namespace Mindblower.Level3
         private TextAsset rules;
 
         [SerializeField]
-        private int Result;
+        private int Result = 0;
+
+        private bool isGameOvered = false;
 
         private int stepsNumber;
 
@@ -33,10 +35,18 @@ namespace Mindblower.Level3
 
         public void OnCoinCheck(Coin coin)
         {
+            isGameOvered = true;
             if (coin.Weight == 10)
             {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
             }
             else
             {
@@ -46,21 +56,32 @@ namespace Mindblower.Level3
                     Result = 2;
                 else
                     Result = 1;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
             }
         }
 
         void OnDisable()
         {
-            var info = new LevelInfo
+            if (!isGameOvered)
             {
-                LevelId = "Level3",
-                StarsCount = Result,
-                Time = (int)Time.timeSinceLevelLoad
-            };
-            if (levelEventsHandler != null)
-                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                if (levelEventsHandler != null)
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
             Debug.Log("Cancel");
         }
 

@@ -22,14 +22,15 @@ namespace Mindblower.Core
             guiController.ShowLevelComplete(result);
         }
 
-        public void OnLevelComplete(int result)
+        public void OnLevelComplete(LevelInfo info)
         {
             guiController.StopBackgroundMusic();
             guiController.PlayVictory();
             int prevResult = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 0);
-            int saveResult = Mathf.Max(prevResult, result);
+            int saveResult = Mathf.Max(prevResult, info.StarsCount);
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, saveResult);
-            StartCoroutine(ShowOnLevelComplete(result));
+            StartCoroutine(ShowOnLevelComplete(info.StarsCount));
+            SendRequest(info);
         }
 
         private IEnumerator ShowOnLevelGameOver()
@@ -39,11 +40,12 @@ namespace Mindblower.Core
             guiController.ShowLevelGameOver();
         }
 
-        public void OnLevelGameOver()
+        public void OnLevelGameOver(LevelInfo info)
         {
             guiController.StopBackgroundMusic();
             guiController.PlayFail();
             StartCoroutine(ShowOnLevelGameOver());
+            SendRequest(info);
         }
 
         public void OnLevelLoaded(TextAsset rulesFile)
@@ -52,6 +54,11 @@ namespace Mindblower.Core
         }
 
         public void OnLevelCanceled(LevelInfo info)
+        {
+            SendRequest(info);
+        }
+
+        private void SendRequest(LevelInfo info)
         {
             var model = new AddAttemptModel
             {
@@ -72,14 +79,14 @@ namespace Mindblower.Core
             Debug.Log("Request failed, code = " + code);
         }
 
-        public void OnGet(string response)
+        public void OnGet<T>(T responseModel)
         {
             throw new NotImplementedException();
         }
 
         public void OnPost(string s)
         {
-            throw new NotImplementedException();
+            Debug.Log("Level: Post: response is " + s);
         }
 
         public void OnLogOut()

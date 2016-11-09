@@ -116,7 +116,7 @@ namespace Mindblower.Core
             }
         }
 
-        public static void Get(string method, IAmItRequestListener listener)
+        public static void Get <T>(string method, IAmItRequestListener listener, T inputModel)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
             request.Method = "GET";
@@ -124,8 +124,8 @@ namespace Mindblower.Core
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
-                listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                inputModel = JsonConvert.DeserializeObject<T>(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                listener.OnGet(new StreamReader(response.GetResponseStream()).ReadToEnd());
 
             }
             else
@@ -154,7 +154,7 @@ namespace Mindblower.Core
 
         void OnFail(string code);
 
-        void OnGet(string response);
+        void OnGet<T>(T responseModel);
 
         //void OnPost(JSONObject response);
 

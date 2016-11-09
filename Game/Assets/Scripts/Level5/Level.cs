@@ -16,9 +16,11 @@ namespace Mindblower.Level5
         private TextAsset rules;
 
         [SerializeField]
-        private int Result;
+        private int Result = 0;
 
         private int stepsNumber;
+
+        private bool isGameOvered = false;
 
         void Awake()
         {
@@ -107,12 +109,21 @@ namespace Mindblower.Level5
 
         public void OnStoneClicked()
         {
+            isGameOvered = true;
+
+            var info = new LevelInfo
+            {
+                LevelId = "Level5",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+
             foreach (var crate in crates)
             {
                 if (crate.Icon != crate.Content)
                 {
                     if (levelEventsHandler != null)
-                        ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                        ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
                     return;
                 }
             }
@@ -125,18 +136,23 @@ namespace Mindblower.Level5
                 Result = 1;
 
             if (levelEventsHandler != null)
-                ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(Result));
+            {
+                ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
+            }
         }
         void OnDisable()
         {
-            var info = new LevelInfo
-            {
-                LevelId = "Level5",
-                StarsCount = Result,
-                Time = (int)Time.timeSinceLevelLoad
-            };
-            if (levelEventsHandler != null)
-                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            if (!isGameOvered) {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level5",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                if (levelEventsHandler != null) {
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+                }
+            }
             Debug.Log("Cancel");
         }
 
