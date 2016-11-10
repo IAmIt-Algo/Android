@@ -555,7 +555,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 948931854}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.87101585
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -975,6 +975,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1135148755}
   - 222: {fileID: 1135148757}
+  - 114: {fileID: 1135148758}
   - 114: {fileID: 1135148756}
   m_Layer: 5
   m_Name: Content
@@ -998,7 +999,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 30.00002}
+  m_AnchoredPosition: {x: 0, y: 30.000008}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1135148756
@@ -1027,6 +1028,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1135148754}
+--- !u!114 &1135148758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1135148754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90d799f6d7d7e543bf1ac7a0b09da01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: {fileID: 1135148754}
+  scroll: {fileID: 573178013}
+  font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1377238749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,11 +1498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b6e91937d948448a18eacf7ff8381c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionText: {fileID: 1081345492}
-  StarsText: {fileID: 496597189}
-  content: {fileID: 1135148754}
-  scroll: {fileID: 573178013}
-  font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  Position: {fileID: 1467863751}
+  Stars: {fileID: 190172428}
 --- !u!1 &1971157861
 GameObject:
   m_ObjectHideFlags: 0

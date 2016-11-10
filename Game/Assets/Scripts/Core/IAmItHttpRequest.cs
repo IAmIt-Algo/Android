@@ -124,11 +124,8 @@ namespace Mindblower.Core
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
-                string s = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Debug.Log(s);
-                inputModel = JsonConvert.DeserializeObject<T>(s);
-                Debug.Log(JsonConvert.SerializeObject(inputModel));
-                listener.OnGet(inputModel);
+                inputModel = JsonConvert.DeserializeObject<T>(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                listener.OnGet(new StreamReader(response.GetResponseStream()).ReadToEnd());
 
             }
             else
@@ -174,7 +171,7 @@ namespace Mindblower.Core
         public static string REGISTRATION = "registration";
         public static string ADD_ATTEMPT = "addAttempt";
         public static string CHANGE_CREDENTIALS = "changeCredentials";
-        public static string GET_RATING_POSITION = "getRating";
+        public static string GET_RATING_POSITION = "getRatingPosition ";
         public static string LOGOUT = "logOff";
     }
 
