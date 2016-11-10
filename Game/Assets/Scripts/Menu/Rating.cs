@@ -102,7 +102,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
         {
             PositionText.text = model.HighestPosition + "";
         }
-        StarsText.text = StarsCount + "";
+        StarsText.text = model.StarsCount + "";
 
         names = new string[model.Rating.Length];
         stars = new int?[model.Rating.Length];

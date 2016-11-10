@@ -1483,8 +1483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b6e91937d948448a18eacf7ff8381c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionText: {fileID: 1081345492}
-  StarsText: {fileID: 496597189}
+  PositionText: {fileID: 1467863751}
+  StarsText: {fileID: 190172428}
   content: {fileID: 1135148754}
   scroll: {fileID: 573178013}
   font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}

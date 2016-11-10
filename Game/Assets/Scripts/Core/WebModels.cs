@@ -31,6 +31,7 @@ namespace Mindblower.Core
     {
         public int HighestPosition { get; set; }
         public int LowestPosition { get; set; }
+        public int StarsCount { get; set; }
         public RatingModel[] Rating { get; set; }
     }
 
