@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -37,6 +38,17 @@ namespace Mindblower.Level3
 
         public bool Intersects(Coin coin)
         {
+            if (name == "LeftPan" || name == "RightPan")
+            {
+                var spaceX = GetComponent<BoxCollider2D>().bounds.center.x;
+                var spaceY = GetComponent<BoxCollider2D>().bounds.center.y;
+                var coinX = coin.GetComponent<Collider2D>().bounds.center.x;
+                var coinY = coin.GetComponent<Collider2D>().bounds.center.y;
+                if (Math.Abs(spaceX - coinX) <= 1.25 && Math.Abs(spaceY - coinY) <= 2)
+                {
+                    return true;
+                }
+            }
             if (GetComponent<SpriteRenderer>().bounds.Intersects(coin.GetComponent<Collider2D>().bounds))
                 return true;
 
