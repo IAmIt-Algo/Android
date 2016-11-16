@@ -15,7 +15,12 @@ namespace Mindblower.Level5
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result = 0;
+
         private int stepsNumber;
+
+        private bool isGameOvered = false;
 
         void Awake()
         {
@@ -41,7 +46,7 @@ namespace Mindblower.Level5
                 bool isDone = false;
                 while (!isDone)
                 {
-                    int contentTypeIndex = Random.Range(0, cratesNumber);
+                    int contentTypeIndex = UnityEngine.Random.Range(0, cratesNumber);
                     ContentType content = (ContentType)contentTypeIndex;
                     if (!used[contentTypeIndex])
                     {
@@ -61,7 +66,7 @@ namespace Mindblower.Level5
             {
                 if (crates[i].Content == ContentType.SwordAndShield)
                 {
-                    int iconTypeIndex = Random.Range(0, 2);
+                    int iconTypeIndex = UnityEngine.Random.Range(0, 2);
                     ContentType icon = (ContentType)iconTypeIndex;
 
                     crates[i].Icon = icon;
@@ -104,26 +109,51 @@ namespace Mindblower.Level5
 
         public void OnStoneClicked()
         {
+            isGameOvered = true;
+
+            var info = new LevelInfo
+            {
+                LevelId = "Level5",
+                StarsCount = Result,
+                Time = (int)Time.timeSinceLevelLoad
+            };
+
             foreach (var crate in crates)
             {
                 if (crate.Icon != crate.Content)
                 {
                     if (levelEventsHandler != null)
-                        ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                        ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
                     return;
                 }
             }
 
-            int result;
             if (stepsNumber <= 1)
-                result = 3;
+                Result = 3;
             else if (stepsNumber <= 2)
-                result = 2;
+                Result = 2;
             else
-                result = 1;
+                Result = 1;
 
             if (levelEventsHandler != null)
-                ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+            {
+                ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
+            }
+        }
+        void OnDisable()
+        {
+            if (!isGameOvered) {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level5",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                if (levelEventsHandler != null) {
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+                }
+            }
+            Debug.Log("Cancel");
         }
 
         public void OnCreateClick()

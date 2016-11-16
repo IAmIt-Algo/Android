@@ -14,7 +14,10 @@ public class Menu : MonoBehaviour {
     {
         SceneManager.LoadScene("Settings");
     }
-
+    public void Logout()
+    {
+        SceneManager.LoadScene("StartLevel");
+    }
     public void Rating()
     {
         SceneManager.LoadScene("Rating");

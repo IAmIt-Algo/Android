@@ -1,6 +1,7 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Mindblower.Level2
 {
@@ -23,7 +24,12 @@ namespace Mindblower.Level2
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result = 0;
+
         private int stepsNumber;
+        private bool isGameOvered = false;
+
         private GameObject levelEventsHandler;
 
         void Awake()
@@ -43,17 +49,39 @@ namespace Mindblower.Level2
             ++stepsNumber;
             if (bucket3.CurrentVolume == 4 || bucket5.CurrentVolume == 4)
             {
-                int result;
+                isGameOvered = true;
+
                 if (stepsNumber <= 6)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 8)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level2",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
 
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
             }
+        }
+
+        void OnDisable()
+        {
+            if (!isGameOvered) {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level2",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
+            Debug.Log("Cancel");
         }
     }
 }

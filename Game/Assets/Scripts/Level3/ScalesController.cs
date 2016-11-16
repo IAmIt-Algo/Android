@@ -41,35 +41,38 @@ namespace Mindblower.Level3
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!isPressed)
+            if (eventData.position.y <= 105)
             {
-                leftPan.GetComponent<PanAligner>().SetWeighing();
-                rightPan.GetComponent<PanAligner>().SetWeighing();
-                if (leftPan.GetWeight() > rightPan.GetWeight())
+                if (!isPressed)
                 {
-                    LeftPutDown();
-                }
-                else if (leftPan.GetWeight() == rightPan.GetWeight())
-                {
-                    Normilize();
+                    leftPan.GetComponent<PanAligner>().SetWeighing();
+                    rightPan.GetComponent<PanAligner>().SetWeighing();
+                    if (leftPan.GetWeight() > rightPan.GetWeight())
+                    {
+                        LeftPutDown();
+                    }
+                    else if (leftPan.GetWeight() == rightPan.GetWeight())
+                    {
+                        Normilize();
+                    }
+                    else
+                    {
+                        RightPutDown();
+                    }
+                    Level.IsBusy = true;
+                    weighButton.SetActive(false);
+                    ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnWeightCheck());
                 }
                 else
                 {
-                    RightPutDown();
+                    leftPan.GetComponent<PanAligner>().SetDefault();
+                    rightPan.GetComponent<PanAligner>().SetDefault();
+                    Normilize();
+                    weighButton.SetActive(true);
+                    Level.IsBusy = false;
                 }
-                Level.IsBusy = true;
-                weighButton.SetActive(false);
-                ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnWeightCheck());
+                isPressed = !isPressed;
             }
-            else
-            {
-                leftPan.GetComponent<PanAligner>().SetDefault();
-                rightPan.GetComponent<PanAligner>().SetDefault();
-                Normilize();
-                weighButton.SetActive(true);
-                Level.IsBusy = false;
-            }
-            isPressed = !isPressed;
         }
     }
 }

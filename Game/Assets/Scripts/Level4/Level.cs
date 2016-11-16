@@ -1,6 +1,7 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Mindblower.Level4
 {
@@ -11,22 +12,51 @@ namespace Mindblower.Level4
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result = 0;
+
         private int stepsNumber;
+        private bool isGameOvered = false;
+
 
         public void OnTurtlePushLastTower(Tower tower)
         {
             if (tower.TurtlesCount == 4)
             {
-                int result;
+                isGameOvered = true;
+
                 if (stepsNumber <= 15)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 19)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level4",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
             }
+        }
+
+        void OnDisable()
+        {
+            if (!isGameOvered) {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level4",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                if (levelEventsHandler != null)
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
+            Debug.Log("Cancel");
         }
 
         public void OnTurtlePush()

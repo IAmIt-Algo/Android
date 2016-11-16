@@ -1,6 +1,7 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Mindblower.Level1
 {
@@ -28,6 +29,11 @@ namespace Mindblower.Level1
         [SerializeField]
         private TextAsset rules;
 
+        [SerializeField]
+        private int Result = 0;
+
+        private bool isGameOvered = false;
+
         void Awake()
         {
             stepsNumber = 0;
@@ -51,37 +57,76 @@ namespace Mindblower.Level1
         {
             if (LeftCoast.HasGameOver && BoatObject.transform.position == RightCoast.BoatDock.transform.position)
             {
+                isGameOvered = true;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level1",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
                 Debug.Log("Game Over!");
             }
 
             if (RightCoast.HasGameOver && BoatObject.transform.position == LeftCoast.BoatDock.transform.position)
             {
+                isGameOvered = true;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level1",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
                 Debug.Log("Game Over!");
             }
         }
 
         private void CheckComplete()
         {
-            if  (RightCoast.HasAllCharacters)
+            if (RightCoast.HasAllCharacters)
             {
-                int result;
+                isGameOvered = true;
+
                 if (stepsNumber <= 17)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 20)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level1",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
 
                 if (levelEventsHandler != null)
-                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
                 Debug.Log("Victory!");
             }
         }
-
+        void OnDisable()
+        {
+            if (!isGameOvered)
+            {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level1",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
+            Debug.Log("Cancel");
+        }
         public void OnBoatMoved()
         {
             ++stepsNumber;
@@ -93,5 +138,7 @@ namespace Mindblower.Level1
             ++stepsNumber;
             CheckComplete();
         }
+
+
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.Core
+namespace Mindblower.Core
 {
     public class UserRegistrationModel
     {
@@ -27,10 +27,12 @@ namespace Assets.Scripts.Core
     }
 
 
-    public class GetRatingPositionModel 
+    public class GetRatingPositionModel
     {
         public int HighestPosition { get; set; }
         public int LowestPosition { get; set; }
+        public int StarsCount { get; set; }
+        public RatingModel[] Rating { get; set; }
     }
 
 
@@ -40,4 +42,12 @@ namespace Assets.Scripts.Core
         public int Time { get; set; }
         public int Stars { get; set; }
     }
+
+
+    public partial class RatingModel
+    {
+        public string UserName { get; set; }
+        public int? StarsCount { get; set; }
+    }
+    
 }

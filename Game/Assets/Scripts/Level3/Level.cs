@@ -1,6 +1,7 @@
 ﻿using Mindblower.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Mindblower.Level3
 {
@@ -12,6 +13,11 @@ namespace Mindblower.Level3
 
         [SerializeField]
         private TextAsset rules;
+
+        [SerializeField]
+        private int Result = 0;
+
+        private bool isGameOvered = false;
 
         private int stepsNumber;
 
@@ -29,23 +35,54 @@ namespace Mindblower.Level3
 
         public void OnCoinCheck(Coin coin)
         {
+            isGameOvered = true;
             if (coin.Weight == 10)
             {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver());
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelGameOver(info));
             }
             else
             {
-                int result;
                 if (stepsNumber <= 3)
-                    result = 3;
+                    Result = 3;
                 else if (stepsNumber <= 4)
-                    result = 2;
+                    Result = 2;
                 else
-                    result = 1;
+                    Result = 1;
+
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+
                 if (levelEventsHandler != null)
-                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(result));
+                    ExecuteEvents.Execute<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelComplete(info));
             }
+        }
+
+        void OnDisable()
+        {
+            if (!isGameOvered)
+            {
+                var info = new LevelInfo
+                {
+                    LevelId = "Level3",
+                    StarsCount = Result,
+                    Time = (int)Time.timeSinceLevelLoad
+                };
+                if (levelEventsHandler != null)
+                    ExecuteEvents.ExecuteHierarchy<ILevelEventsHandler>(levelEventsHandler, null, (x, y) => x.OnLevelCanceled(info));
+            }
+            Debug.Log("Cancel");
         }
 
         public void OnWeightCheck()
