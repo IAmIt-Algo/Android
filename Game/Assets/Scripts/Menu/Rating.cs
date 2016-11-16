@@ -38,7 +38,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
             player = new GameObject("Player" + t, typeof(LayoutElement), typeof(HorizontalLayoutGroup), typeof(RectTransform));
             player.transform.SetParent(content.transform);
             player.GetComponent<LayoutElement>().preferredHeight = 30;
-            player.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = false;
+            player.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = true;
             player.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = false;
             player.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
 
@@ -46,7 +46,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
             position = new GameObject("postion" + t, typeof(Text), typeof(LayoutElement));
             position.transform.SetParent(player.transform);
             position.GetComponent<LayoutElement>().preferredHeight = 30;
-            position.GetComponent<LayoutElement>().preferredWidth = 45;
+            position.GetComponent<LayoutElement>().preferredWidth = 30;
             position.GetComponent<Text>().fontSize = 20;
             position.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             position.GetComponent<Text>().text = t + 1 + "";
@@ -56,7 +56,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
             userName = new GameObject("userName" + t, typeof(Text), typeof(LayoutElement));
             userName.transform.SetParent(player.transform);
             userName.GetComponent<LayoutElement>().preferredHeight = 30;
-            userName.GetComponent<LayoutElement>().preferredWidth = 307;
+            userName.GetComponent<LayoutElement>().preferredWidth = 440;
             userName.GetComponent<Text>().fontSize = 20;
             userName.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
             userName.GetComponent<Text>().text = names[t];
@@ -66,7 +66,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
             starsCount = new GameObject("starsCount" + t, typeof(Text), typeof(LayoutElement));
             starsCount.transform.SetParent(player.transform);
             starsCount.GetComponent<LayoutElement>().preferredHeight = 30;
-            starsCount.GetComponent<LayoutElement>().preferredWidth = 135;
+            starsCount.GetComponent<LayoutElement>().preferredWidth = 80;
             starsCount.GetComponent<Text>().fontSize = 20;
             starsCount.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
             starsCount.GetComponent<Text>().text = stars[t].ToString();
