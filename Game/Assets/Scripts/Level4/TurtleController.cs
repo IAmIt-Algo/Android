@@ -23,13 +23,14 @@ namespace Mindblower.Level4
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            startDratSortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
             if (IsDragable)
             {
                 startDragPosition = transform.position;
                 offset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - startDragPosition;
                 offset.z = 0;
 
-                startDratSortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+                
                 GetComponent<SpriteRenderer>().sortingOrder = 2000;
             }
         }
