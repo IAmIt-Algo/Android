@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -62,35 +63,40 @@ namespace Mindblower.Level1
             Level.IsBusy = false;
         }
 
-        public IEnumerator LaneActor(Actor actor)
+        public IEnumerator LaneActor(Actor actor, Vector3 start, Vector3 end)
         {
-            MainBoat.Passenger = null;
-            ActorController controller = actor.GetComponent<ActorController>();
-            if (Location == CoastLocation.LeftCoast)
-                controller.RotateLeft();
+            if ((end.x - start.x > 0 && Location == CoastLocation.LeftCoast) || (end.x - start.x < 0 && Location == CoastLocation.RightCoast))
+            {
+                MainBoat.Passenger = null;
+                ActorController controller = actor.GetComponent<ActorController>();
+                if (Location == CoastLocation.LeftCoast)
+                    controller.RotateLeft();
 
-            ActorCheckPoint jumpPoint = JumpPoints.Find((x) => x.ActorType == actor.ActorType);
-            yield return StartCoroutine(controller.JumpTo(jumpPoint));
-            ActorCheckPoint stopPoint = StopPoints.Find((x) => x.ActorType == actor.ActorType);
-            yield return StartCoroutine(controller.WalkTo(stopPoint));
-            actor.transform.parent = transform;
+                ActorCheckPoint jumpPoint = JumpPoints.Find((x) => x.ActorType == actor.ActorType);
+                yield return StartCoroutine(controller.JumpTo(jumpPoint));
+                ActorCheckPoint stopPoint = StopPoints.Find((x) => x.ActorType == actor.ActorType);
+                yield return StartCoroutine(controller.WalkTo(stopPoint));
+                actor.transform.parent = transform;
 
-            if (Location == CoastLocation.LeftCoast)
-                controller.RotateRight();
-            else
-                controller.RotateLeft();
+                if (Location == CoastLocation.LeftCoast)
+                    controller.RotateRight();
+                else
+                    controller.RotateLeft();
 
-            ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnCharacterMoved());
+                ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnCharacterMoved());
+            }
         }
 
-        public void OnActorClicked(Actor actor)
+        public void OnActorClicked(Actor actor, Vector3 start, Vector3 end)
         {
-            if (!Level.IsBusy)
+            if ((end.x - start.x > 0 && Location == CoastLocation.RightCoast) || (end.x - start.x < 0 && Location == CoastLocation.LeftCoast))
             {
-                Level.IsBusy = true;
-                StartCoroutine(MoveActor(actor));
+                if (!Level.IsBusy)
+                {
+                    Level.IsBusy = true;
+                    StartCoroutine(MoveActor(actor));
+                }
             }
-            
         }
 
         public void OnPointerClick(PointerEventData eventData)
