@@ -702,7 +702,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 2.6995473}
   serializedVersion: 2
-  m_Size: {x: 2.46, y: 4}
+  m_Size: {x: 2.46, y: 5}
 --- !u!1 &346029993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1502,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 2.699547}
   serializedVersion: 2
-  m_Size: {x: 2.4600003, y: 4}
+  m_Size: {x: 2.4600003, y: 5}
 --- !u!1 &577992860
 GameObject:
   m_ObjectHideFlags: 0

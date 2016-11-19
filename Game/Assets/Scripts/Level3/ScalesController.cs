@@ -41,7 +41,7 @@ namespace Mindblower.Level3
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (eventData.position.y <= 105)
+            if (eventData.pointerEnter.name == "Scales")
             {
                 if (!isPressed)
                 {

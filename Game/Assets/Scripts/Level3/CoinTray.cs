@@ -44,7 +44,9 @@ namespace Mindblower.Level3
                 var spaceY = GetComponent<BoxCollider2D>().bounds.center.y;
                 var coinX = coin.GetComponent<Collider2D>().bounds.center.x;
                 var coinY = coin.GetComponent<Collider2D>().bounds.center.y;
-                if (Math.Abs(spaceX - coinX) <= 1.25 && Math.Abs(spaceY - coinY) <= 2)
+                var halfWidth = GetComponent<BoxCollider2D>().bounds.size.x / 2;
+                var halfHeight = GetComponent<BoxCollider2D>().bounds.size.y / 2;
+                if (Math.Abs(spaceX - coinX) <= halfWidth && Math.Abs(spaceY - coinY) <= halfHeight)
                 {
                     return true;
                 }
