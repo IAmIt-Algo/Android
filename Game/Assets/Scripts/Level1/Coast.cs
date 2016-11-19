@@ -89,7 +89,10 @@ namespace Mindblower.Level1
 
         public void OnActorClicked(Actor actor, Vector3 start, Vector3 end)
         {
-            if ((end.x - start.x > 0 && Location == CoastLocation.RightCoast) || (end.x - start.x < 0 && Location == CoastLocation.LeftCoast))
+            var renderer = MainBoat.GetComponentInChildren<SpriteRenderer>();
+            var endVector = Camera.main.ScreenToWorldPoint(start);
+            endVector.z += 10;
+            if (renderer.bounds.Contains(endVector))
             {
                 if (!Level.IsBusy)
                 {
