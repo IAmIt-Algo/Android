@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Mindblower.Level1
 {
     [RequireComponent(typeof(BoatController))]
-    public class Boat : MonoBehaviour, IActorClickHandler
+    public class Boat : MonoBehaviour, IActorClickHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         public List<ActorCheckPoint> ActorPoints;
         public Actor Passenger;
@@ -44,6 +46,29 @@ namespace Mindblower.Level1
                 StartCoroutine(LaneCoast(coast, actor, start, end));
                 Level.IsBusy = true;
             }
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            ExecuteEvents.Execute<IBoatSwipeHandler>(transform.parent.gameObject, null, (x, y) => x.OnBoatSwiped(new Vector3
+            {
+                x = eventData.pressPosition.x,
+                y = eventData.pressPosition.y,
+                z = 0
+            }, new Vector3
+            {
+                x = eventData.position.x,
+                y = eventData.position.y,
+                z = 0
+            }, null));
         }
     }
 }

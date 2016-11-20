@@ -2591,7 +2591,7 @@ Transform:
   - {fileID: 251421948}
   - {fileID: 1684422507}
   m_Father: {fileID: 1491058451}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!60 &674548389
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2632,6 +2632,8 @@ MonoBehaviour:
   - {fileID: 1684422508}
   BoatDock: {fileID: 593393444}
   MainBoat: {fileID: 1643950971}
+  LeftCoast: {fileID: 738640853}
+  RightCoast: {fileID: 674548390}
   Location: 1
 --- !u!212 &674548391
 SpriteRenderer:
@@ -2980,8 +2982,9 @@ Transform:
   - {fileID: 1482474928}
   - {fileID: 1478414108}
   - {fileID: 1490104999}
+  - {fileID: 1643950970}
   m_Father: {fileID: 1491058451}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!60 &738640852
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3021,6 +3024,8 @@ MonoBehaviour:
   - {fileID: 1490105000}
   BoatDock: {fileID: 1355829718}
   MainBoat: {fileID: 1643950971}
+  LeftCoast: {fileID: 738640853}
+  RightCoast: {fileID: 674548390}
   Location: 0
 --- !u!212 &738640854
 SpriteRenderer:
@@ -5645,7 +5650,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1643950970}
   - {fileID: 738640851}
   - {fileID: 674548388}
   m_Father: {fileID: 648303182}
@@ -5862,6 +5866,7 @@ GameObject:
   - 114: {fileID: 1643950973}
   - 114: {fileID: 1643950972}
   - 114: {fileID: 1643950971}
+  - 114: {fileID: 1643950974}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -5885,8 +5890,8 @@ Transform:
   - {fileID: 563451925}
   - {fileID: 1458185140}
   - {fileID: 101768253}
-  m_Father: {fileID: 1491058451}
-  m_RootOrder: 0
+  m_Father: {fileID: 738640851}
+  m_RootOrder: 10
 --- !u!114 &1643950971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5926,6 +5931,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f81fee6b9306d2f43af0d359eeed0fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1643950974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643950969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908f34d4ca0d87041a5e75a3a22b2feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1684422506

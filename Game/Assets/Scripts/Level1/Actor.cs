@@ -32,11 +32,11 @@ namespace Mindblower.Level1
         public void OnEndDrag(PointerEventData eventData)
         {
             ExecuteEvents.Execute<IActorClickHandler>(transform.parent.gameObject, null, (x, y) => x.OnActorClicked(this, new Vector3 {
-                x = eventData.position.x,
-                y = eventData.position.y,
-                z = 0}, new Vector3 {
                 x = eventData.pressPosition.x,
                 y = eventData.pressPosition.y,
+                z = 0}, new Vector3 {
+                x = eventData.position.x,
+                y = eventData.position.y,
                 z = 0}));
         }
     }
