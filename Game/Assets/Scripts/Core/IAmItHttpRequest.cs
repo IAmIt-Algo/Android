@@ -116,7 +116,7 @@ namespace Mindblower.Core
             }
         }
 
-        public static void Get <T>(string method, IAmItRequestListener listener, T inputModel)
+        public static void Get<T>(string method, IAmItRequestListener listener)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
             request.Method = "GET";
@@ -126,9 +126,9 @@ namespace Mindblower.Core
             {
                 string s = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 Debug.Log(s);
-                inputModel = JsonConvert.DeserializeObject<T>(s);
-                Debug.Log(JsonConvert.SerializeObject(inputModel));
-                listener.OnGet(inputModel);
+                T outputModel = JsonConvert.DeserializeObject<T>(s);
+                Debug.Log(JsonConvert.SerializeObject(outputModel));
+                listener.OnGet(outputModel);
 
             }
             else
@@ -170,12 +170,13 @@ namespace Mindblower.Core
 
     public static class IAmItServerMethods
     {
-        public static string LOGIN = "login";
-        public static string REGISTRATION = "registration";
-        public static string ADD_ATTEMPT = "addAttempt";
-        public static string CHANGE_CREDENTIALS = "changeCredentials";
-        public static string GET_RATING_POSITION = "getRating";
-        public static string LOGOUT = "logOff";
+        public readonly static string LOGIN = "login";
+        public readonly static string REGISTRATION = "registration";
+        public readonly static string ADD_ATTEMPT = "addAttempt";
+        public readonly static string CHANGE_CREDENTIALS = "changeCredentials";
+        public readonly static string GET_RATING_POSITION = "getRating";
+        public readonly static string LOGOUT = "logOff";
+        public readonly static string GET_INFO = "getInfo";
     }
 
 }

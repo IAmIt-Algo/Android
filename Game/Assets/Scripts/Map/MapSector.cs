@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Mindblower.Core;
 
 namespace Mindblower.Map
 {
@@ -38,6 +39,13 @@ namespace Mindblower.Map
                 {
                     realContent.SetActive(true);
                     Destroy(dummyContent);
+                }
+            }
+            if (!Synchronizer.IsUsed)
+            {
+                using (var sync = new Synchronizer())
+                {
+                    sync.Synchronize();
                 }
             }
         }

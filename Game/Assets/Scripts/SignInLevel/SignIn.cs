@@ -16,7 +16,6 @@ public class SignIn : MonoBehaviour, IAmItRequestListener {
         UserLoginModel model = new UserLoginModel();
         model.Email = inputEmail.text;
         model.Password = inputPassword.text;
-
         IAmItHttpRequest.Login(model, this);
         //SceneManager.LoadScene("MapLevel");
         //Запустить какой-нибудь progress bar до завершения запроса
@@ -38,6 +37,7 @@ public class SignIn : MonoBehaviour, IAmItRequestListener {
         Debug.Log("Request succeed, Login");
         //Все правильно, погрузка карты
         SceneManager.LoadScene("MapLevel");
+        
     }
 
     public void OnLogOut()

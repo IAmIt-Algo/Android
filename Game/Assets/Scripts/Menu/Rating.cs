@@ -26,8 +26,7 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
 
     // Use this for initialization
     void Start () {
-        GetRatingPositionModel model = new GetRatingPositionModel();
-        IAmItHttpRequest.Get(IAmItServerMethods.GET_RATING_POSITION, this, model);
+        IAmItHttpRequest.Get<GetRatingPositionModel>(IAmItServerMethods.GET_RATING_POSITION, this);
     }
 
     public void BuildListForScroll()

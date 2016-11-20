@@ -44,10 +44,19 @@ namespace Mindblower.Core
     }
 
 
-    public partial class RatingModel
+    public class RatingModel
     {
         public string UserName { get; set; }
         public int? StarsCount { get; set; }
     }
-    
+    public class GetUserInformationModel
+    {
+        public List<Level> Levels { get; set; }
+    }
+    public class Level
+    {
+        public string Name { get; set; }
+        public int StarsCount { get; set; }
+    }
+
 }
