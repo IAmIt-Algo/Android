@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Mindblower.Level1
 {
     [RequireComponent(typeof(CheckPointMoveBehaviour))]
-    public class BoatController : MonoBehaviour, ICoastClickHandler
+    public class BoatController : MonoBehaviour, IBoatSwipeHandler
     {
         private MoveBehaviour moveBehaviour;
         private BoatmanController boatmanController;
@@ -46,14 +47,13 @@ namespace Mindblower.Level1
             Level.IsBusy = false;
         }
 
-        public void OnCoastClicked(Coast coast)
+        public void OnBoatSwiped(Vector3 start, Vector3 end, Coast coast)
         {
             if (!Level.IsBusy)
             {
                 Level.IsBusy = true;
                 StartCoroutine(RawTo(coast.BoatDock));
             }
-                
         }
     }
 }
