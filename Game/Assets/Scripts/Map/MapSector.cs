@@ -41,13 +41,6 @@ namespace Mindblower.Map
                     Destroy(dummyContent);
                 }
             }
-            if (!Synchronizer.IsUsed)
-            {
-                using (var sync = new Synchronizer())
-                {
-                    sync.Synchronize();
-                }
-            }
         }
     }
 }

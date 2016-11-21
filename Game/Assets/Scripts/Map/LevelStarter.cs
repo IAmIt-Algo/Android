@@ -28,7 +28,6 @@ namespace Mindblower.Map
             for (int i = 0; i < result; ++i)
                 stars[i].enabled = true;
         }
-
         void OnMouseDown()
         {
             PlayerPrefs.SetFloat("Camera_Position_Y", Camera.main.transform.position.y);
