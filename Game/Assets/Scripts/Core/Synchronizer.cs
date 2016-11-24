@@ -41,6 +41,7 @@ namespace Mindblower.Core
             var enumerator = _levelStarters.GetEnumerator();
             enumerator.MoveNext();
             levels.ForEach((x) => {
+                PlayerPrefs.SetInt(x.Name, x.StarsCount);
                 enumerator.Current.GetComponentsInChildren<SpriteRenderer>().Where(r => r.name.Contains("star")).Take(x.StarsCount).ToList().ForEach((y) => { y.enabled = true; });
                 enumerator.MoveNext();
             });
