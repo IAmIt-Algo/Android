@@ -6,6 +6,11 @@ public class ToSignIn : MonoBehaviour {
 
     public void ButtonClick()
     {
-        SceneManager.LoadScene("SignInLevel");
+        if (PlayerPrefs.HasKey("Token"))
+            SceneManager.LoadScene("MapLevel");
+        else
+        {
+            SceneManager.LoadScene("SignInLevel");
+        }
     }
 }

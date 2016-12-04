@@ -10,7 +10,6 @@ public class SignIn : MonoBehaviour, IAmItRequestListener {
 
     public Text inputEmail;
     public Text inputPassword;
-
     public void ButtonClick()
     {
         UserLoginModel model = new UserLoginModel();

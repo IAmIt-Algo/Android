@@ -13,7 +13,15 @@ namespace Mindblower.Core
     {
 
         private const string SERVER_ADDRESS = "http://ec2-184-72-112-237.compute-1.amazonaws.com/";
-        private static string token;
+        private static string Token
+        {
+            get{
+                return PlayerPrefs.GetString("Token");
+            }
+            set{
+                PlayerPrefs.SetString("Token", value);
+            }
+        }
 
         public static void Registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
@@ -72,8 +80,8 @@ namespace Mindblower.Core
                 {
                     if (cookies.ElementAt(i) == ';')
                     {
-                        token = cookies.Substring(26, i);
-                        Debug.Log("In Login: token is " + token);
+                        Token = cookies.Substring(26, i);
+                        Debug.Log("In Login: token is " + Token);
                         break;
                     }
 
@@ -95,7 +103,7 @@ namespace Mindblower.Core
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
-            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
+            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + Token);
             request.ContentType = "application/json";
             request.ContentLength = data.Length;
 
@@ -120,7 +128,7 @@ namespace Mindblower.Core
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
             request.Method = "GET";
-            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
+            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + Token);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
