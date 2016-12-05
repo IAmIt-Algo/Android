@@ -28,8 +28,6 @@ namespace Mindblower.Core
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
 
-            Debug.Log("In Registration: " + JsonConvert.SerializeObject(model));
-
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
@@ -41,15 +39,28 @@ namespace Mindblower.Core
                 stream.Write(data, 0, data.Length);
             }
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            try
             {
-                listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                {
+                    if (response.StatusCode.Equals(HttpStatusCode.OK))
+                    {
+                        listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                    }
+                }
             }
-            else
+            catch (WebException e)
             {
-                listener.OnFail(response.StatusCode.ToString());
+                using (HttpWebResponse response = (HttpWebResponse) e.Response)
+                {
+                    HttpWebResponse httpResponse = (HttpWebResponse)response;
+                    using (Stream data1 = response.GetResponseStream())
+                    using (var reader = new StreamReader(data1))
+                    {
+                        string text = reader.ReadToEnd();
+                        listener.OnFail(text);
+                    }
+                }
             }
 
         }
@@ -58,8 +69,6 @@ namespace Mindblower.Core
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.LOGIN);
 
-            Debug.Log("In Login: " + JsonConvert.SerializeObject(model));
-
             var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
 
             request.Method = "POST";
@@ -70,29 +79,41 @@ namespace Mindblower.Core
             {
                 stream.Write(data, 0, data.Length);
             }
-            
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+
+            try
             {
-                string cookies = response.Headers.Get("Set-Cookie");
-                cookies.Trim();
-                for (int i = 40; i < cookies.Length; i++)
+                using (HttpWebResponse response1 = (HttpWebResponse)request.GetResponse())
                 {
-                    if (cookies.ElementAt(i) == ';')
+                    if (response1.StatusCode.Equals(HttpStatusCode.OK))
                     {
-                        Token = cookies.Substring(26, i);
-                        Debug.Log("In Login: token is " + Token);
-                        break;
+                        string cookies = response1.Headers.Get("Set-Cookie");
+                        cookies.Trim();
+                        for (int i = 40; i < cookies.Length; i++)
+                        {
+                            if (cookies.ElementAt(i) == ';')
+                            {
+                                Token = cookies.Substring(26, i);
+                                break;
+                            }
+
+                        }
+
+                        listener.OnLogin();
                     }
-
                 }
-
-                listener.OnLogin();
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
             }
-            else
+            catch (WebException e)
             {
-                listener.OnFail(response.StatusCode.ToString());
+                using (HttpWebResponse response1 = (HttpWebResponse) e.Response)
+                {
+                    HttpWebResponse httpResponse = (HttpWebResponse)response1;
+                    using (Stream data1 = response1.GetResponseStream())
+                    using (var reader = new StreamReader(data1))
+                    {
+                        string text = reader.ReadToEnd();
+                        listener.OnFail(text);
+                    }
+                }
             }
         }
 
@@ -116,7 +137,6 @@ namespace Mindblower.Core
             if (response.StatusCode.Equals(HttpStatusCode.OK))
             {
                 listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                //JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
             }
             else
             {
