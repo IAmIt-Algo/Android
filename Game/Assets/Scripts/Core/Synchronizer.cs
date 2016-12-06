@@ -30,7 +30,7 @@ namespace Mindblower.Core
         }
         public void OnFail(string code)
         {
-            Debug.Log("Something go wrong. Request has returned with code " + code);
+            Debug.Log("Something go wrong. " + code);
         }
 
         public void OnGet<T>(T responseModel)
