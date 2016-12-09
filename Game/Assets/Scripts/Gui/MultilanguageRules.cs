@@ -23,6 +23,7 @@ namespace Mindblower.Gui
             fullParagraphList = new List<string>();
             multilanguage = new Dictionary<string, Dictionary<string, string>>();
             language = "English";
+         
         }
 
         private void ReadRules(TextAsset rulesFile)
@@ -63,6 +64,7 @@ namespace Mindblower.Gui
             foreach (var paragraphId in fullParagraphList)
             {
                 MultilanguageText multilanguageText = Instantiate(multilanguageTextPrefab);
+                multilanguageText.
                 multilanguageText.ChangeText(multilanguage[language][paragraphId]);
                 multilanguageText.transform.SetParent(contentGameObject.transform);
             }
