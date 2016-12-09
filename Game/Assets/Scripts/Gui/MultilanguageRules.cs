@@ -64,7 +64,6 @@ namespace Mindblower.Gui
             foreach (var paragraphId in fullParagraphList)
             {
                 MultilanguageText multilanguageText = Instantiate(multilanguageTextPrefab);
-                multilanguageText.
                 multilanguageText.ChangeText(multilanguage[language][paragraphId]);
                 multilanguageText.transform.SetParent(contentGameObject.transform);
             }

@@ -35,16 +35,22 @@ namespace Mindblower.Core
 
         public void OnGet<T>(T responseModel)
         {
-            var levels = (responseModel as GetUserInformationModel).Levels;
-            levels.Sort((a, b) => ExtractNumber(a.Name) - ExtractNumber(b.Name));
-            _levelStarters.ForEach((s) => { s.GetComponentsInChildren<SpriteRenderer>().Where(r => r.name.Contains("star")).ToList().ForEach((y) => { y.enabled = false; }); });
-            var enumerator = _levelStarters.GetEnumerator();
-            enumerator.MoveNext();
-            levels.ForEach((x) => {
-                PlayerPrefs.SetInt(x.Name, x.StarsCount);
-                enumerator.Current.GetComponentsInChildren<SpriteRenderer>().Where(r => r.name.Contains("star")).Take(x.StarsCount).ToList().ForEach((y) => { y.enabled = true; });
+            try {
+                var levels = (responseModel as GetUserInformationModel).Levels;
+                levels.Sort((a, b) => ExtractNumber(a.Name) - ExtractNumber(b.Name));
+                _levelStarters.ForEach((s) => { s.GetComponentsInChildren<SpriteRenderer>().Where(r => r.name.Contains("star")).ToList().ForEach((y) => { y.enabled = false; }); });
+                var enumerator = _levelStarters.GetEnumerator();
                 enumerator.MoveNext();
-            });
+                levels.ForEach((x) =>
+                {
+                    PlayerPrefs.SetInt(x.Name, x.StarsCount);
+                    enumerator.Current.GetComponentsInChildren<SpriteRenderer>().Where(r => r.name.Contains("star")).Take(x.StarsCount).ToList().ForEach((y) => { y.enabled = true; });
+                    enumerator.MoveNext();
+                });
+            } catch(NullReferenceException ex)
+            {
+                Debug.Log(ex.Message);
+            }
         }
 
         public void OnLogin()

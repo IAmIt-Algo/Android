@@ -59,6 +59,8 @@ namespace Mindblower.Core
                     {
                         if (response.StatusCode.Equals(HttpStatusCode.OK))
                         {
+                            PlayerPrefs.DeleteKey("Token");
+                            Synchronizer.IsUsed = false;
                             listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
                         }
                     }
@@ -176,7 +178,15 @@ namespace Mindblower.Core
                     stream.Write(data, 0, data.Length);
                 }
 
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                HttpWebResponse response = null;
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                } catch(WebException ex)
+                {
+                    response = (HttpWebResponse)ex.Response;
+                    Debug.Log(ex.Message);
+                }
                 if (response.StatusCode.Equals(HttpStatusCode.OK))
                 {
                     listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
@@ -207,7 +217,18 @@ namespace Mindblower.Core
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
                 request.Method = "GET";
                 request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + Token);
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                HttpWebResponse response = null;
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                }
+                catch (WebException ex)
+                {
+                    response = (HttpWebResponse)ex.Response;
+                    Debug.Log(ex.Message);
+                }
+                string s2 = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            Debug.Log(response.StatusCode + ": " + s2);
                 if (response.StatusCode.Equals(HttpStatusCode.OK))
                 {
                     string s = new StreamReader(response.GetResponseStream()).ReadToEnd();
