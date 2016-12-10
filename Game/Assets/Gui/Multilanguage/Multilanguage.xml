@@ -1,14 +1,35 @@
 <Languages>
 	<Language id="English">
+    <Login>Login</Login>
+    <Register>Register</Register>
+    <Rules>Rules</Rules>
+    <Rating>Rating</Rating>
+    <Settings>Settings</Settings>
+    <Logout>Logout</Logout>
 		<Map>Map</Map>
 		<Restart>Restart</Restart>
 		<GameOver>Game Over</GameOver>
 		<LevelComplete>Level Completed</LevelComplete>
-	</Language>
+    <Password>Password</Password>
+    <Position>Position</Position>
+    <Stars>Stars</Stars>
+    <Rules>Rules</Rules>
+
+  </Language>
 	<Language id="Russian">
+    <Login>Вход</Login>
+    <Register>Регистрация</Register>
+    <Rules>Правила</Rules>
+    <Rating>Рейтинг</Rating>
+    <Settings>Настройки</Settings>
+    <Logout>Выход</Logout>
 		<Map>Карта</Map>
-		<Restart>Перезапустить</Restart>
+		<Restart>Заново</Restart>
 		<GameOver>Поражение</GameOver>
 		<LevelComplete>Победа</LevelComplete>
+    <Password>Пароль</Password>
+    <Position>Позиция</Position>
+    <Stars>Звезды</Stars>
+    <Rules>Правила</Rules>
 	</Language>
 </Languages>

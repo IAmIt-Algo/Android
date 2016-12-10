@@ -10,7 +10,7 @@ namespace Mindblower.Gui
     {
         [SerializeField]
         private TextAsset multiLanguageXml;
-
+       
         private string language = "English";
 
         private Dictionary<string, Dictionary<string, string>> multilanguage;
@@ -40,6 +40,9 @@ namespace Mindblower.Gui
 
         void Awake()
         {
+            if (Application.systemLanguage == SystemLanguage.Russian) {
+                language = "Russian";
+            }
             InitMultilanguage();
 
         }

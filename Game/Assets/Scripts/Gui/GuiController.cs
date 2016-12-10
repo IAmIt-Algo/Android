@@ -27,6 +27,8 @@ namespace Mindblower.Gui
         private AudioClip victorySound;
         [SerializeField]
         private AudioClip failSound;
+        [SerializeField]
+        private GameObject SignIn;
 
         private Multilanguage multilanguage;
         private MultilanguageRules multilanguageRules;

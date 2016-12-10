@@ -291,6 +291,7 @@ GameObject:
   - 224: {fileID: 283601336}
   - 222: {fileID: 283601338}
   - 114: {fileID: 283601337}
+  - 114: {fileID: 283601339}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -337,7 +338,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 32
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2
@@ -357,6 +358,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283601335}
+--- !u!114 &283601339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283601335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf079ebefa2dd7f408d575648a0a0ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Password
 --- !u!1 &312843714
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +383,7 @@ GameObject:
   - 114: {fileID: 312843715}
   - 114: {fileID: 312843719}
   - 114: {fileID: 312843720}
+  - 114: {fileID: 312843721}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -479,6 +493,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eba7c688a0d42549b77907bc37ffd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &312843721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 312843714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91eecd4ecb3a724384c1d073e2b7fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiLanguageXml: {fileID: 4900000, guid: 5bc31e7af561d824cb24a4ea6c17b5ff, type: 3}
 --- !u!1 &354276993
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +845,7 @@ GameObject:
   - 224: {fileID: 1198650888}
   - 222: {fileID: 1198650890}
   - 114: {fileID: 1198650889}
+  - 114: {fileID: 1198650891}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -883,6 +910,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1198650887}
+--- !u!114 &1198650891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198650887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf079ebefa2dd7f408d575648a0a0ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Register
 --- !u!1 &1555212198
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +978,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 32
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2

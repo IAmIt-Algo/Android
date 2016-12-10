@@ -22,7 +22,12 @@ namespace Mindblower.Gui
         {
             fullParagraphList = new List<string>();
             multilanguage = new Dictionary<string, Dictionary<string, string>>();
-            language = "English";
+            if (Application.systemLanguage == SystemLanguage.Russian)
+            {
+                language = "Russian";
+            }
+            else { language = "English"; }
+            
          
         }
 
