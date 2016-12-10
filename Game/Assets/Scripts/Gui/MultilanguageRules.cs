@@ -23,6 +23,7 @@ namespace Mindblower.Gui
             fullParagraphList = new List<string>();
             multilanguage = new Dictionary<string, Dictionary<string, string>>();
             language = "English";
+         
         }
 
         private void ReadRules(TextAsset rulesFile)

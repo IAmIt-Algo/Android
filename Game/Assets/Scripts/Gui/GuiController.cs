@@ -43,7 +43,7 @@ namespace Mindblower.Gui
             Debug.Assert(rulesWindow != null, "Rules window reference is missed.");
             Debug.Assert(levelCompleteResult != null, "Complete window reference is missed.");
             Debug.Assert(mapButton != null, "Map button reference is missed.");
-
+            
             multilanguage = GetComponent<Multilanguage>();
             multilanguageRules = GetComponent<MultilanguageRules>();
         }

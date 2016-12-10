@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using UnityEngine;
+using System.Runtime.InteropServices;
+
 namespace Mindblower.Core
 {
 
@@ -13,129 +15,234 @@ namespace Mindblower.Core
     {
 
         private const string SERVER_ADDRESS = "http://ec2-184-72-112-237.compute-1.amazonaws.com/";
-        private static string token;
+        private static string Token
+        {
+            get{
+                return PlayerPrefs.GetString("Token");
+            }
+            set{
+                PlayerPrefs.SetString("Token", value);
+            }
+        }
+            
 
         public static void Registration(UserRegistrationModel model, IAmItRequestListener listener)
         {
-
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
-
-            Debug.Log("In Registration: " + JsonConvert.SerializeObject(model));
-
-            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
-
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-
-            using (var stream = request.GetRequestStream())
+            bool isConnected = true;
+            WebClient Client = new WebClient();
+            String Response;
+            try
             {
-                stream.Write(data, 0, data.Length);
-            }
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+                Response = Client.DownloadString("http://www.google.com");
+            } catch (WebException e)
             {
-                listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                isConnected = false;
+                listener.OnFail("Error. Check up you internet connection");
             }
-            else
+            if (isConnected)
             {
-                listener.OnFail(response.StatusCode.ToString());
-            }
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.REGISTRATION);
 
+                var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
+
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+                try
+                {
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    {
+                        if (response.StatusCode.Equals(HttpStatusCode.OK))
+                        {
+                            PlayerPrefs.DeleteKey("Token");
+                            Synchronizer.IsUsed = false;
+                            listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                        }
+                    }
+                }
+                catch (WebException e)
+                {
+                    using (HttpWebResponse response = (HttpWebResponse)e.Response)
+                    {
+                        HttpWebResponse httpResponse = (HttpWebResponse)response;
+                        using (Stream data1 = response.GetResponseStream())
+                        using (var reader = new StreamReader(data1))
+                        {
+                            string text = reader.ReadToEnd();
+                            listener.OnFail(text);
+                        }
+                    }
+                }
+            }
         }
 
         public static void Login(UserLoginModel model, IAmItRequestListener listener)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.LOGIN);
-
-            Debug.Log("In Login: " + JsonConvert.SerializeObject(model));
-
-            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
-
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-
-            using (var stream = request.GetRequestStream())
+            bool isConnected = true;
+            WebClient Client = new WebClient();
+            String Response;
+            try
             {
-                stream.Write(data, 0, data.Length);
+                Response = Client.DownloadString("http://www.google.com");
             }
-            
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            catch (WebException e)
             {
-                string cookies = response.Headers.Get("Set-Cookie");
-                cookies.Trim();
-                for (int i = 40; i < cookies.Length; i++)
-                {
-                    if (cookies.ElementAt(i) == ';')
-                    {
-                        token = cookies.Substring(26, i);
-                        Debug.Log("In Login: token is " + token);
-                        break;
-                    }
+                isConnected = false;
+                listener.OnFail("Error. Check up you internet connection");
+            }
+            if (isConnected)
+            {
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + IAmItServerMethods.LOGIN);
 
+                var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
+
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
                 }
 
-                listener.OnLogin();
-                JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
-            }
-            else
-            {
-                listener.OnFail(response.StatusCode.ToString());
+                try
+                {
+                    using (HttpWebResponse response1 = (HttpWebResponse)request.GetResponse())
+                    {
+                        if (response1.StatusCode.Equals(HttpStatusCode.OK))
+                        {
+                            string cookies = response1.Headers.Get("Set-Cookie");
+                            cookies.Trim();
+                            for (int i = 40; i < cookies.Length; i++)
+                            {
+                                if (cookies.ElementAt(i) == ';')
+                                {
+                                    Token = cookies.Substring(26, i);
+                                    break;
+                                }
+
+                            }
+
+                            listener.OnLogin();
+                        }
+                    }
+                }
+                catch (WebException e)
+                {
+                    using (HttpWebResponse response1 = (HttpWebResponse)e.Response)
+                    {
+                        HttpWebResponse httpResponse = (HttpWebResponse)response1;
+                        using (Stream data1 = response1.GetResponseStream())
+                        using (var reader = new StreamReader(data1))
+                        {
+                            string text = reader.ReadToEnd();
+                            listener.OnFail(text);
+                        }
+                    }
+                }
             }
         }
 
         public static void Post <T> (T model, string method, IAmItRequestListener listener)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
-            
-            var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
-
-            request.Method = "POST";
-            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
-            request.ContentType = "application/json";
-            request.ContentLength = data.Length;
-
-            using (var stream = request.GetRequestStream())
+            bool isConnected = true;
+            WebClient Client = new WebClient();
+            String Response;
+            try
             {
-                stream.Write(data, 0, data.Length);
+                Response = Client.DownloadString("http://www.google.com");
             }
-            
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            catch (WebException e)
             {
-                listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
-                //JsonConvert.DeserializeObject(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                isConnected = false;
+                listener.OnFail("Error. Check up you internet connection");
             }
-            else
+            if (isConnected)
             {
-                listener.OnFail(response.StatusCode.ToString());
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
+
+                var data = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(model));
+
+                request.Method = "POST";
+                request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + Token);
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                HttpWebResponse response = null;
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                } catch(WebException ex)
+                {
+                    response = (HttpWebResponse)ex.Response;
+                    Debug.Log(ex.Message);
+                }
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                {
+                    listener.OnPost(new StreamReader(response.GetResponseStream()).ReadToEnd());
+                }
+                else
+                {
+                    listener.OnFail(response.StatusCode.ToString());
+                }
             }
         }
 
-        public static void Get <T>(string method, IAmItRequestListener listener, T inputModel)
+        public static void Get<T>(string method, IAmItRequestListener listener)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
-            request.Method = "GET";
-            request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + token);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            bool isConnected = true;
+            WebClient Client = new WebClient();
+            String Response;
+            try
             {
-                string s = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                Debug.Log(s);
-                inputModel = JsonConvert.DeserializeObject<T>(s);
-                Debug.Log(JsonConvert.SerializeObject(inputModel));
-                listener.OnGet(inputModel);
-
+                Response = Client.DownloadString("http://www.google.com");
             }
-            else
+            catch (WebException e)
             {
-                listener.OnFail(response.StatusCode.ToString());
+                isConnected = false;
+                listener.OnFail("Error. Check up you internet connection");
             }
+            if (isConnected)
+            {
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(SERVER_ADDRESS + method);
+                request.Method = "GET";
+                request.Headers.Add(HttpRequestHeader.Cookie, ".AspNet.ApplicationCookie=" + Token);
+                HttpWebResponse response = null;
+                try
+                {
+                    response = (HttpWebResponse)request.GetResponse();
+                }
+                catch (WebException ex)
+                {
+                    response = (HttpWebResponse)ex.Response;
+                    Debug.Log(ex.Message);
+                }
+                string s2 = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            Debug.Log(response.StatusCode + ": " + s2);
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                {
+                    string s = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                    Debug.Log(s);
+                    T outputModel = JsonConvert.DeserializeObject<T>(s);
+                    Debug.Log(JsonConvert.SerializeObject(outputModel));
+                    listener.OnGet(outputModel);
 
+                }
+                else
+                {
+                    listener.OnFail(response.StatusCode.ToString());
+                }
+            }
         }
 
         /*public static void update(IAmItRequestListener listener)
@@ -144,8 +251,6 @@ namespace Mindblower.Core
             request.Method = "POST";
 
             WebResponse response = request.GetResponse();
-
-
         }*/
     }
 
@@ -170,12 +275,13 @@ namespace Mindblower.Core
 
     public static class IAmItServerMethods
     {
-        public static string LOGIN = "login";
-        public static string REGISTRATION = "registration";
-        public static string ADD_ATTEMPT = "addAttempt";
-        public static string CHANGE_CREDENTIALS = "changeCredentials";
-        public static string GET_RATING_POSITION = "getRating";
-        public static string LOGOUT = "logOff";
+        public readonly static string LOGIN = "login";
+        public readonly static string REGISTRATION = "registration";
+        public readonly static string ADD_ATTEMPT = "addAttempt";
+        public readonly static string CHANGE_CREDENTIALS = "changeCredentials";
+        public readonly static string GET_RATING_POSITION = "getRating";
+        public readonly static string LOGOUT = "logOff";
+        public readonly static string GET_INFO = "getInfo";
     }
 
 }

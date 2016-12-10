@@ -21,6 +21,7 @@ namespace Mindblower.Gui
         public void ChangeText(string newText)
         {
             multilanguageText.text = newText;
+            multilanguageText.fontSize = 32;
         }
     }
 }

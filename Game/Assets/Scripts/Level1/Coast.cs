@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 
 namespace Mindblower.Level1
 {
-    public class Coast : MonoBehaviour, IPointerClickHandler, IActorClickHandler
+    public class Coast : MonoBehaviour, IActorClickHandler, IBoatSwipeHandler
     {
         public List<ActorCheckPoint> StopPoints;
         public List<ActorCheckPoint> JumpPoints;
         public CheckPoint BoatDock;
         public Boat MainBoat;
+        public Coast LeftCoast;
+        public Coast RightCoast;
 
         [SerializeField]
         private CoastLocation Location;
@@ -57,7 +59,7 @@ namespace Mindblower.Level1
 
                 if (Location == CoastLocation.RightCoast)
                     controller.RotateRight();
-
+                
                 ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnCharacterMoved());
             }
             Level.IsBusy = false;
@@ -65,7 +67,7 @@ namespace Mindblower.Level1
 
         public IEnumerator LaneActor(Actor actor, Vector3 start, Vector3 end)
         {
-            if ((end.x - start.x > 0 && Location == CoastLocation.LeftCoast) || (end.x - start.x < 0 && Location == CoastLocation.RightCoast))
+            if ((end.x - start.x > 0 && Location == CoastLocation.RightCoast) || (end.x - start.x < 0 && Location == CoastLocation.LeftCoast))
             {
                 MainBoat.Passenger = null;
                 ActorController controller = actor.GetComponent<ActorController>();
@@ -84,12 +86,15 @@ namespace Mindblower.Level1
                     controller.RotateLeft();
 
                 ExecuteEvents.ExecuteHierarchy<ITaskEventsHandler>(gameObject, null, (x, y) => x.OnCharacterMoved());
-            }
+            } 
         }
 
         public void OnActorClicked(Actor actor, Vector3 start, Vector3 end)
         {
-            if ((end.x - start.x > 0 && Location == CoastLocation.RightCoast) || (end.x - start.x < 0 && Location == CoastLocation.LeftCoast))
+            var renderer = MainBoat.GetComponentInChildren<SpriteRenderer>();
+            var endVector = Camera.main.ScreenToWorldPoint(end);
+            endVector.z += 10;
+            if (renderer.bounds.Contains(endVector))
             {
                 if (!Level.IsBusy)
                 {
@@ -99,9 +104,17 @@ namespace Mindblower.Level1
             }
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnBoatSwiped(Vector3 start, Vector3 end, Coast coast)
         {
-            ExecuteEvents.Execute<ICoastClickHandler>(MainBoat.gameObject, null, (x, y) => x.OnCoastClicked(this));
+            if ((end.x - start.x > 0 && Location == CoastLocation.LeftCoast) || (end.x - start.x < 0 && Location == CoastLocation.RightCoast))
+            {
+                if (this.name == LeftCoast.name)
+                    coast = RightCoast;
+                else
+                    coast = LeftCoast;
+                MainBoat.transform.parent = coast.transform;
+                ExecuteEvents.Execute<IBoatSwipeHandler>(MainBoat.gameObject, null, (x, y) => x.OnBoatSwiped(start, end, coast));
+            }
         }
     }
 }

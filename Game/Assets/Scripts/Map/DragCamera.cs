@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Mindblower.Core;
 
 namespace Mindblower.Map
 {
@@ -22,6 +23,11 @@ namespace Mindblower.Map
             Vector3 newPosition = transform.position;
             newPosition.y = savedY;
             transform.position = newPosition;
+            if (!Synchronizer.IsUsed)
+            {
+                var sync = new Synchronizer();
+                sync.Synchronize();
+            }
         }
 
         private Vector3 lastTouchPosition;
