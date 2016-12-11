@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Mindblower.Core;
 using Newtonsoft.Json;
 using System;
+using System.Threading;
 
 public class Rating : MonoBehaviour, IAmItRequestListener {
 
@@ -13,6 +14,9 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
     int LowestPosition;
     int HighestPosition;
     int StarsCount;
+    private bool _visible = false;
+    private string _code = "";
+    private bool _isShowed = false;
 
     public GameObject content;
     public Scrollbar scroll;
@@ -88,7 +92,31 @@ public class Rating : MonoBehaviour, IAmItRequestListener {
 
     public void OnFail(string code)
     {
-        Debug.Log("Rating: " + code);
+        _isShowed = false;
+        _visible = true;
+        _code = code;
+    }
+
+    void OnGUI()
+    {
+        if (_visible)
+        {
+            GUI.Box(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), "");
+            GUI.Label(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), _code);
+            Thread myThread = new Thread(new ThreadStart(Pause));
+            myThread.Start();
+        }
+    }
+
+    public void Pause()
+    {
+        if (!_isShowed)
+        {
+            _isShowed = true;
+            Debug.Log("Count");
+            Thread.Sleep(3000);
+            _visible = false;
+        }
     }
 
     public void OnGet<T>(T responseModel)
