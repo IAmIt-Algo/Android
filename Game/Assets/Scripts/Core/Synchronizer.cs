@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,10 @@ namespace Mindblower.Core
     {
         public static bool IsUsed = false;
         private List<GameObject> _levelStarters { get; set; }
+        private bool _visible = false;
+        private string _code = "";
+        private bool _isShowed = false;
+
         public Synchronizer()
         {
             _levelStarters = GameObject.FindGameObjectsWithTag("Starter").ToList();
@@ -28,9 +33,34 @@ namespace Mindblower.Core
         {
             return Int32.Parse(Regex.Match(s, @"\d+").Value);
         }
+
         public void OnFail(string code)
         {
-            Debug.Log("Something go wrong. " + code);
+            _isShowed = false;
+            _visible = true;
+            _code = code;
+        }
+
+        void OnGUI()
+        {
+            if (_visible)
+            {
+                GUI.Box(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), "");
+                GUI.Label(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), _code);
+                Thread myThread = new Thread(new ThreadStart(Pause));
+                myThread.Start();
+            }
+        }
+
+        public void Pause()
+        {
+            if (!_isShowed)
+            {
+                _isShowed = true;
+                Debug.Log("Count");
+                Thread.Sleep(3000);
+                _visible = false;
+            }
         }
 
         public void OnGet<T>(T responseModel)

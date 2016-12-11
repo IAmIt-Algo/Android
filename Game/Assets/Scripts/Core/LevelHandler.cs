@@ -3,12 +3,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Threading;
 
 namespace Mindblower.Core
 {
     public class LevelHandler : MonoBehaviour, ILevelEventsHandler, IAmItRequestListener
     {
         private GuiController guiController;
+        private bool _visible = false;
+        private string _code = "";
+        private bool _isShowed = false;
 
         void Start()
         {
@@ -76,7 +80,31 @@ namespace Mindblower.Core
 
         public void OnFail(string code)
         {
-            Debug.Log("Request failed, code = " + code);
+            _isShowed = false;
+            _visible = true;
+            _code = code;
+        }
+
+        void OnGUI()
+        {
+            if (_visible)
+            {
+                GUI.Box(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), "");
+                GUI.Label(new Rect(Screen.width / 2 - Screen.width * 4 / 10, Screen.height * 23 / 32, Screen.width * 4 / 5, Screen.height / 4), _code);
+                Thread myThread = new Thread(new ThreadStart(Pause));
+                myThread.Start();
+            }
+        }
+
+        public void Pause()
+        {
+            if (!_isShowed)
+            {
+                _isShowed = true;
+                Debug.Log("Count");
+                Thread.Sleep(3000);
+                _visible = false;
+            }
         }
 
         public void OnGet<T>(T responseModel)
